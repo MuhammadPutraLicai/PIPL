@@ -1,0 +1,25 @@
+{
+  "name": "pipl",
+  "version": "1.0.0",
+  "description": "Tugas project akhir pipl kelompok 3, aplikasi web pencarian pemasok",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MuhammadPutraLicai/PIPL.git"
+  },
+  "author": "Kelompok 3",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MuhammadPutraLicai/PIPL/issues"
+  },
+  "homepage": "https://github.com/MuhammadPutraLicai/PIPL#readme",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "express-session": "^1.18.1",
+    "multer": "^1.4.5-lts.1"
+  }
+}

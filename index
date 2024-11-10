@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TemanBisnis</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="hero-section">
+        <div class="navbar">
+            <h1>TemanBisnis</h1>
+            <div class="nav-icons">
+                <a href="#">Home</a>
+                <a href="#">Bookmark</a>
+            </div>
+        </div>
+        <div class="hero-content">
+            <h2>Solusi lengkap untuk kebutuhan pasokan bisnis Anda, dari bahan baku hingga produk jadi.</h2>
+            <div class="search-bar">
+                <input type="text" placeholder="Masukkan nama produk">
+                <button>🔍</button>
+            </div>
+        </div>
+    </header>
+
+    <section class="supplier-list">
+        <h3>Filter</h3>
+        <div class="supplier">
+            <h4>PT Indojaya Group tbk</h4>
+            <p>🛠 Manufaktur</p>
+            <p>🍲 Food</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <button>Lihat Pemasok</button>
+        </div>
+        <div class="supplier">
+            <h4>PT Indojaya Group tbk</h4>
+            <p>🛠 Manufaktur</p>
+            <p>🍲 Food</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <button>Lihat Pemasok</button>
+        </div>
+        <div class="supplier">
+            <h4>PT Indojaya Group tbk</h4>
+            <p>🛠 Manufaktur</p>
+            <p>🍲 Food</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <button>Lihat Pemasok</button>
+        </div>
+        <div class="supplier">
+            <h4>PT Indojaya Group tbk</h4>
+            <p>🛠 Manufaktur</p>
+            <p>🍲 Food</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <button>Lihat Pemasok</button>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <p>TemanBisnis | Your Trusted Partner for Business Connections</p>
+            <div class="social-media">
+                <a href="#">🌐</a>
+                <a href="#">📘</a>
+                <a href="#">📸</a>
+            </div>
+            <div class="contact">
+                <p>Contact Us</p>
+                <a href="mailto:temanbisnis@gmail.com">temanbisnis@gmail.com</a>
+            </div>
+            <p>© 2024 TemanBisnis | All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

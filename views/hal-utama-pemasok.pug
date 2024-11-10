@@ -1,0 +1,15 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title main
+  body
+    each card in dataPemasok
+      .pemasok-card( id = card.id)
+        h2.nama-perusahaan #{card.namaPerusahaan}
+        h4.jenis-perusahaan #{card.jenisPerusahaan}
+        h4.jenis-produk #{card.jenisProduk}
+        p.deskripsi #{card.deskripsi}
+        div Lihat Pemasok

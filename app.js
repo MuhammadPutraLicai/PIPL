@@ -1,17 +1,15 @@
 const express = require('express');
-const {getPemasokCardList} = require('./controllers/pemasok-controller')
+const {getCustomerMainPage} = require('./src/controllers/main-page-controller');
 const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
+app.use('/public', express.static( __dirname + '/public'));
 app.set('view engine', 'pug');
-app.set('views','./views');
+app.set('views','./src/views');
 
 app.get('/main', (req, res)=>{
-    getPemasokCardList(req, res);
-    //res.send("<h2>database successfully accessed</h2>")
-    //res.render('hal-utama-pemasok', {daftarPemasok: arrayPemasok});
-
+    getCustomerMainPage(req, res);
 })
 
 app.listen(8080, ()=>{

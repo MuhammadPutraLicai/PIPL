@@ -1,4 +1,4 @@
-const {getAllData} = require('./../configs/db');
+const {getAllData} = require('../../configs/db');
 
 class Pemasok{//merepresentasikan halaman profil pemasok
     constructor(id, data){

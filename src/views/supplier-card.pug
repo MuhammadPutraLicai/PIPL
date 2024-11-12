@@ -1,0 +1,14 @@
+.supplier(id='#')
+    .card-heading
+        .card-image(style=`background-image: url('${card.linkLogo}');`)
+        .card-info
+          h4.nama-perusahaan.league-spartan #{card.namaPerusahaan}
+          .jenis-perusahaan.league-spartan
+            span.ic--baseline-category
+            | #{card.jenisPerusahaan}
+          .jenis-produk.league-spartan
+            span.mdi--tag
+            | #{card.jenisProduk}
+    .card-content
+        p.description.libre-baskerville-regular #{card.deskripsi}
+        button.league-spartan( id = card.id) Lihat Pemasok

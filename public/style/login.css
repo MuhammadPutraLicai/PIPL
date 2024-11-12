@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Kaisei+Tokumin:wght@400;500;700;800&display=swap');
+
+* {
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
+}
+/*font*/
+.kaisei-tokumin-regular {
+    font-family: "Kaisei Tokumin", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+  
+.kaisei-tokumin-medium {
+    font-family: "Kaisei Tokumin", serif;
+    font-weight: 500;
+    font-style: normal;
+}
+  
+.kaisei-tokumin-bold {
+    font-family: "Kaisei Tokumin", serif;
+    font-weight: 700;
+    font-style: normal;
+}
+  
+.kaisei-tokumin-extrabold {
+    font-family: "Kaisei Tokumin", serif;
+    font-weight: 800;
+    font-style: normal;
+}
+
+#main-container{
+    min-height: 100vh;
+    min-width: 100vw;
+    display: flex;
+}
+
+#image-section{
+    width: 50%;
+    border: 1px solid black;
+    background-image: url('./../images/login-background.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: rgba(68, 68, 68, 0.863);
+    background-blend-mode: overlay;
+}
+
+#form-section{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#heading{
+    color: #005A2A;
+    margin: 1em 0em;
+    width: 70%;
+}
+
+#form-fields{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 70%;
+    height: 30%;
+}
+
+.input-fields{
+    display: flex;
+    flex-direction: column;
+}
+
+.input-fields input{
+    height: 28px;
+    padding: 4px;
+}
+
+#form-fields #submit-button{
+    border: none;
+    width: 30%;
+    height: 2.5em;
+    padding: 0.5em;
+    background-color: #006F33;
+    color: white;
+}
+
+#create-account{
+    width: 70%;
+    margin: 1em 0em;
+}

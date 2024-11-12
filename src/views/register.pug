@@ -1,0 +1,60 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    link(rel='icon', type='image/x-icon', href='https://img.icons8.com/?size=100&id=dxoYK8bxqiJr&format=png&color=000000')
+    link(rel='stylesheet', href='public/style/register.css')
+    |  
+    title Register
+  body
+    #background-container
+      #form-container
+        h1 Daftar ke Website Kami
+        form#form-section(method='POST', action='/register', target='_self')
+          .form-item
+            label.league-spartan(for='nama-perusahaan') Nama Perusahaan :
+            input#nama-perusahaan(type='text', name='nama-perusahaan')
+          .form-item
+            label.league-spartan(for='jenis-perusahaan') Jenis Perusahaan :
+            select#jenis-perusahaan(name='jenis-perusahaan')
+              option(value='Manufaktur') Manufaktur
+              option(value='Distributor') Distributor
+          .form-item
+            label.league-spartan(for='jenis-produk') Jenis Produk :
+            select#jenis-produk(name='jenis-produk')
+              option(value='Elektronik') Elektronik
+              option(value='Otomotif') Otomotif
+              option(value='Pakaian') Pakaian
+              option(value='Furnitur') Furnitur
+              option(value='Pertanian') Pertanian
+              option(value='Peternakan') Peternakan
+              option(value='Kimia') Kimia
+              option(value='Makanan') Makanan
+              option(value='Konstruksi') Konstruksi
+              option(value='Medis') Medis
+              option(value='Pendidikan') Pendidikan
+              option(value='Logam') Logam
+              option(value='Kayu') Kayu
+              option(value='Tekstil') Tekstil
+              option(value='Software') Software
+          .form-item
+            label.league-spartan(for='nomor-telepon') Nomor Telepon :
+            input#nomor-telepon(type='text', name='nomor-telepon')
+          .form-item
+            label.league-spartan(for='email') Email Perusahaan:
+            input#email(type='email', name='email')
+          .form-item
+            label.league-spartan(for='alamat') Alamat :
+            input#alamat(type='text', name='alamat')
+          .form-item
+            label.league-spartan(for='kata-sandi') Kata Sandi:
+            input#kata-sandi(type='password', name='kata-sandi')
+          .form-item
+            label.league-spartan(for='ketik-ulang-kata-sandi') Ketik Ulang Kata Sandi:
+            input#ketik-ulang-kata-sandi(type='password', name='ketik-ulang-kata-sandi')
+          .form-item
+            label.league-spartan(for='deskripsi') Deskripsi :
+            textarea#deskripsi(name='deskripsi', cols='5', rows='15')
+          input#submit-button(type='submit', value='Daftar')

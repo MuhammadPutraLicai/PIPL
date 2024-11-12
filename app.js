@@ -12,6 +12,14 @@ app.get('/main', (req, res)=>{
     getCustomerMainPage(req, res);
 })
 
+app.get('/login', (req, res)=>{
+    res.render('login.pug');
+});
+
+app.get('/register', (req, res)=>{
+    res.render('register.pug');
+});
+
 app.listen(8080, ()=>{
     console.log("Server is listening at http://localhost:8080");
 })

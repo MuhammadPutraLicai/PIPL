@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./../style/register.css"> 
+    <title>Register</title>
+</head>
+<body>
+    <div id="background-container">
+        <div id="form-container">
+            <h1>Daftar ke Website Kami</h1>
+            <form id="form-section"  method="POST" action="/register"  target="_self">
+
+                <div class="form-item">
+                    <label for="nama-perusahaan" class="league-spartan">Nama Perusahaan :</label>
+                    <input type="text" name="nama-perusahaan" id="nama-perusahaan">
+                </div>
+                
+                <div class="form-item">
+                    <label for="jenis-perusahaan" class="league-spartan">Jenis Perusahaan :</label>
+                    <select name="jenis-perusahaan" id="jenis-perusahaan">
+                        <option value="Manufaktur">Manufaktur</option>
+                        <option value="Distributor">Distributor</option>
+                    </select>
+                </div>
+                
+                <div class="form-item">
+                    <label for="jenis-produk" class="league-spartan">Jenis Produk :</label>
+                    <select name="jenis-produk" id="jenis-produk">
+                        <option value="Elektronik">Elektronik</option>
+                        <option value="Otomotif">Otomotif</option>
+                        <option value="Pakaian">Pakaian</option>
+                        <option value="Furnitur">Furnitur</option>
+                        <option value="Pertanian">Pertanian</option>
+                        <option value="Peternakan">Peternakan</option>
+                        <option value="Kimia">Kimia</option>
+                        <option value="Makanan">Makanan</option>
+                        <option value="Konstruksi">Konstruksi</option>
+                        <option value="Medis">Medis</option>
+                        <option value="Pendidikan">Pendidikan</option>
+                        <option value="Logam">Logam</option>
+                        <option value="Kayu">Kayu</option>
+                        <option value="Tekstil">Tekstil</option>
+                        <option value="Software">Software</option>
+                    </select>
+                </div>
+                
+                <div class="form-item">
+                    <label for="nomor-telepon" class="league-spartan">Nomor Telepon :</label>
+                    <input type="text" name="nomor-telepon" id="nomor-telepon"> 
+                </div>
+                
+                <div class="form-item">
+                    <label for="email" class="league-spartan">Email Perusahaan:</label>
+                    <input type="email" id="email" name="email">
+                </div>
+                
+                <div class="form-item">
+                    <label for="alamat" class="league-spartan">Alamat :</label>
+                    <input type="text" id="alamat" name="alamat">
+                </div>
+                
+                <div class="form-item">
+                    <label for="kata-sandi" class="league-spartan">Kata Sandi:</label>
+                    <input type="password" id="kata-sandi" name="kata-sandi">
+                </div>
+                
+                <div class="form-item">
+                    <label for="ketik-ulang-kata-sandi" class="league-spartan">Ketik Ulang Kata Sandi:</label>
+                    <input type="password" id="ketik-ulang-kata-sandi" name="ketik-ulang-kata-sandi">
+                </div>
+                
+                <div class="form-item">
+                    <label for="deskripsi" class="league-spartan">Deskripsi :</label>
+                    <textarea id="deskripsi" name="deskripsi" cols="5" rows="15"></textarea>
+                </div>
+                
+                <input type="submit" value="Daftar" id="submit-button">
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    link(rel='icon', type='image/x-icon', href='https://img.icons8.com/?size=100&id=dxoYK8bxqiJr&format=png&color=000000')
+    link(rel='stylesheet', href='public/style/login.css')
+    title Login
+  body
+    #main-container
+      #image-section
+      #form-section
+        h1#heading.kaisei-tokumin-extrabold Login to Our Website
+        form#form-fields(action='/login', method='post')
+          .input-fields.kaisei-tokumin-regular
+            label(for='username') Username:
+            input#username(type='text', name='username', required='')
+          .input-fields.kaisei-tokumin-regular
+            label(for='password') Password:
+            input#password(type='password', name='password', required='')
+          input#submit-button(type='submit', value='Login')
+        p#create-account
+          | Do not have an account? create one 
+          a(href='/register') here

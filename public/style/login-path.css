@@ -1,0 +1,58 @@
+:root {
+    --teal: #085F63;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Kreon:wght@300..700&family=League+Spartan:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
+.league-spartan{
+    font-family: "League Spartan", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.libre-baskerville-regular {
+    font-family: "Libre Baskerville", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+  
+.libre-baskerville-bold {
+    font-family: "Libre Baskerville", serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+#background-container{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding: 15% 0%;
+}
+
+#login-path{
+    border: 0.15em solid var(--teal);
+    border-radius: 10px;
+    min-height: 30%;
+    min-width: 30%;
+    padding: 1em 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.path{
+    color: white;
+    background-color: var(--teal);
+    padding: 0.8em 0em;
+    text-align: center;
+    border-radius: 10px;
+    cursor: pointer;
+}

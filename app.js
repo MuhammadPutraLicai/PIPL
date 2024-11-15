@@ -12,12 +12,13 @@ app.get('/main', (req, res)=>{
     getCustomerMainPage(req, res);
 })
 
-app.get('/login', (req, res)=>{
+app.get('/login-pemasok', (req, res)=>{
+    //console.log(req.route.path);
     res.render('login.pug');
 });
 
-app.get('/register', (req, res)=>{
-    res.render('register.pug');
+app.get('/register-pemasok', (req, res)=>{
+    res.render('register-pemasok.pug');
 });
 
 app.listen(8080, ()=>{

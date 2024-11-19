@@ -1,5 +1,5 @@
 const express = require('express');
-const {getCustomerMainPage} = require('./src/controllers/main-page-controller');
+const {getCustomerMainPage, getPemasokMainPage} = require('./src/controllers/main-page-controller');
 const app = express();
 const authentication = require('./routes/authentication');
 
@@ -13,7 +13,11 @@ app.get('/', (req, res)=>{
     res.redirect('/authentication/login')
 });
 
-app.get('/main', (req, res)=>{
+app.get('/main-pemasok', (req, res)=>{
+    getPemasokMainPage(req, res);
+});
+
+app.get('/main-customer', (req, res)=>{
     getCustomerMainPage(req, res);
 })
 

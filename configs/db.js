@@ -49,6 +49,7 @@ async function addDataPemasok(pemasokData) {
     });*/
     const docRef = await addDoc(collection(db, "pemasok"), pemasokData);
     console.log("New pemasok document has been created with ID :", docRef.id);
+
 }
 
 //menambahkan dokumen baru ke collection customer

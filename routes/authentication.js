@@ -23,14 +23,18 @@ authentication.get('/login-customer', (req, res)=>{
         registerPath : '/authentication/register-customer'});
 });
 
-//routes to receive login data----
+//routes to receive and process login data----
 authentication.post('/login-pemasok', (req, res)=>{
-
+    console.log(req.body.email);
+    console.log(req.body.password);
+    console.log(__dirname);
+    res.status(200).json({message:"ok", role:"pemasok"});
 });
 
 authentication.post('/login-customer', (req, res)=>{
-    res.send("data received");
     console.log(req.body.email);
+    console.log(req.body.password);
+    res.status(200).json({message:"ok", role:"customer"});
 });
 
 

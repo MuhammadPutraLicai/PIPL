@@ -1,0 +1,20 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    link(rel='icon', type='image/x-icon', href='https://img.icons8.com/?size=100&id=dxoYK8bxqiJr&format=png&color=000000')
+    link(rel='stylesheet', href='public/style/global-style.css')
+    link(rel='stylesheet', href='public/style/nav-pemasok.css')
+    link(rel='stylesheet', href='public/style/search-section.css')
+    link(rel='stylesheet', href='public/style/filter.css')
+    link(rel='stylesheet', href='public/style/supplier-list.css')
+    link(rel='stylesheet', href='public/style/footer.css')
+    title Main Page
+  body
+    include ./pemasok-nav.pug
+    include ./../components/search-section.pug
+    include ./../components/filter.pug
+    include ./../components/supplier-list.pug
+    include ./../components/footer.pug

@@ -1,0 +1,30 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    link(rel='stylesheet', href='public/style/register-customer.css')
+    |  
+    title Register
+  body
+    #background-container
+      #form-container
+        h1 Daftar ke Website Kami Sebagai Customer
+        form#form-section(method='POST', action= formPath , target='_self')
+          .form-item
+            label.league-spartan(for='nama') Nama :
+            input#nama(type='text', name='nama')
+          .form-item
+            label.league-spartan(for='nomor-telepon') Nomor Telepon :
+            input#nomor-telepon(type='text', name='nomor-telepon')
+          .form-item
+            label.league-spartan(for='email') Email :
+            input#email(type='email', name='email')
+          .form-item
+            label.league-spartan(for='kata-sandi') Kata Sandi :
+            input#kata-sandi(type='password', name='kata-sandi')
+          .form-item
+            label.league-spartan(for='ketik-ulang-kata-sandi') Ketik Ulang Kata Sandi:
+            input#ketik-ulang-kata-sandi(type='password', name='ketik-ulang-kata-sandi')
+          input#submit-button(type='submit', value='Daftar')

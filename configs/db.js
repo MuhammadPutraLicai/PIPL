@@ -1,13 +1,13 @@
 const { initializeApp, deleteApp } = require("firebase/app");
 const { doc, setDoc, getDoc, collection, 
         query, where, terminate, addDoc,
-        getDocs, getFirestore, limit } = require("firebase/firestore"); 
+        getDocs, getFirestore, limit, updateDoc } = require("firebase/firestore"); 
 const fireBaseConfig = require("./config.js");
 // Initialize Firebase
 const app = initializeApp(fireBaseConfig);
 const db = getFirestore(app);
 
-//mengambil semua dokumen
+//mengambil semua dokumen pada koleksi tertentu
 async function getAllData(collectionName){
     const q = query(collection(db, collectionName), limit(15));
     const querySnapShot = await getDocs(q);
@@ -22,7 +22,7 @@ async function getAllData(collectionName){
     return dokumentList;
 }
 
-//mengambil dokumen berdasarkan id
+//mengambil dokumen berdasarkan id dokumen
 async function getDataById(collectionName, docId) {
     const docRef = doc(db, collectionName, docId);
     const docSnap = await getDoc(docRef);
@@ -30,8 +30,9 @@ async function getDataById(collectionName, docId) {
     console.log(docSnap.data());
 }
 
-//menambahkan dokumen dengan id random
-async function addData() {
+//menambahkan dokumen baru dengan id random(dibuat oleh firebase)
+//menambah dokumen baru ke colletion pemasok
+async function addDataPemasok() {
     const docRef = await addDoc(collection(db, "pemasok"),{
         nama_perusahaan: "Industri Jaya Makmur",
         jenis_perusahaan: "Manufaktur",
@@ -46,11 +47,31 @@ async function addData() {
         deskripsi: "Perusahaan manufaktur terkemuka yang memproduksi berbagai produk elektronik berkualitas tinggi.",
         alamat: "Kawasan Industri Jababeka, Cikarang, Jawa Barat, Indonesia"
     });
-
     console.log("Document written with ID: ", docRef.id);
 }
 
+//menambahkan dokumen baru ke collection customer
+async function addDataCustomer(customerData){
+    const docRef = await addDoc(collection(db, "customer"), customerData);//customerData is js object
+    console.log("New customer document has been created with ID :", docRef.id);
+}
+
+//menambahkan dokumen baru dan update dokumen ke collection bookmark
+async function addDataBookmarks(bookmarks = null, docId = null){
+    if(bookmarks){
+        const docRef = await setDoc(doc(db, "bookmarks", docId), { daftar_pemasok : bookmarks});
+        console.log(`bookmarks with id : ${docId} has been updated`);
+    }else{
+        const docRef = await addDoc(collection(db, "bookmarks"),{ daftar_pemasok : null});
+        console.log("New bookmark document has been written with ID :", docRef.id);
+        return docRef.id; //return the bookmark document's id that has been created
+    }
+}
+
+
 module.exports = {
     getAllData,
-    getDataById
+    getDataById,
+    addDataCustomer,
+    addDataBookmarks
 };

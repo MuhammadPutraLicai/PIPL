@@ -1,6 +1,7 @@
 const express = require('express');
 const {getCustomerMainPage} = require('./src/controllers/main-page-controller');
 const app = express();
+const authentication = require('./routes/authentication');
 
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
@@ -8,17 +9,18 @@ app.use('/public', express.static( __dirname + '/public'));
 app.set('view engine', 'pug');
 app.set('views','./src/views');
 
+app.get('/', (req, res)=>{
+    res.redirect('/authentication/login')
+});
+
 app.get('/main', (req, res)=>{
     getCustomerMainPage(req, res);
 })
 
-app.get('/login-pemasok', (req, res)=>{
-    //console.log(req.route.path);
-    res.render('login.pug');
-});
+app.use('/authentication', authentication);
 
-app.get('/register-pemasok', (req, res)=>{
-    res.render('register-pemasok.pug');
+app.get('*', function(req, res){
+    res.send('Sorry, this is an invalid URL.');
 });
 
 app.listen(8080, ()=>{

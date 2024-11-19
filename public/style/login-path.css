@@ -32,6 +32,11 @@
 
 #background-container{
     min-height: 100vh;
+    background-image: url("https://images.unsplash.com/photo-1705591933301-cd2bd4acac7b?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+    background-size: cover;
+    background-position: center;
+    background-color: #030000f3;
+    background-blend-mode: overlay;
     display: flex;
     justify-content: center;
     padding: 15% 0%;
@@ -56,3 +61,27 @@
     border-radius: 10px;
     cursor: pointer;
 }
+
+@media screen and (max-width: 1100px) {
+    #background-container{
+        padding: 20% 0%;
+    }
+    #login-path {
+      min-width: 50%;
+    }
+  }
+
+  @media screen and (max-width: 850px) {
+    #background-container{
+        padding: 30% 0%;;
+    }
+    #login-path {
+      min-width: 70%;
+    }
+  }
+
+  @media screen and (max-width: 540px) {
+    #background-container{
+        padding: 40% 0%;;
+    }
+  }

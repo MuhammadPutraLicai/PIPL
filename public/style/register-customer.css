@@ -1,0 +1,114 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Kreon:wght@300..700&family=League+Spartan:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
+.league-spartan{
+    font-family: "League Spartan", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.libre-baskerville-regular {
+    font-family: "Libre Baskerville", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+  
+.libre-baskerville-bold {
+    font-family: "Libre Baskerville", serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+#background-container{
+    background-image: url('../images/search-background.jpg');
+    background-position: center;
+    background-size: cover;
+    background-color: #000000bd;
+    background-blend-mode: overlay;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding: 3% 0%;
+}
+
+#form-container{
+    background-color: white;
+    min-width: 45%;
+    border-radius: 12px;
+    padding: 1.3em 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#form-container h1{
+    text-align: center;
+    color: #085F63;
+    font-family: "League Spartan", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    max-width: 80%;
+}
+
+#form-container #form-section{
+    min-width: 80%;
+    margin-top: 1.5em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#form-section .form-item{
+    color: #085F63;
+    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+    padding: 0.5em 0em;
+    min-width: 70%;
+}
+
+.form-item label{
+    padding: 0.2em 0em;
+}
+
+.form-item input{
+    padding: 0.1em 0em;
+    font-size: 1em;
+    font-family: "Libre Baskerville", serif;
+    font-weight: 500;
+    font-style: normal;
+}
+
+#form-section #submit-button{
+    min-width: 10%;
+    padding: 0.6em 2.5em;
+    margin-top: 1.2em;
+    background-color: white;
+    color: #085F63;
+    border: 1px solid #085F63;
+    font-family: "League Spartan", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+}
+
+@media screen and (max-width: 1000px) {
+     #form-container{
+      min-width: 80%;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    #form-container{
+     min-width: 95%;
+   }
+}

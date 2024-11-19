@@ -11,8 +11,8 @@ html(lang='en')
     #main-container
       #image-section
       #form-section
-        h1#heading.kaisei-tokumin-extrabold Login to Our Website
-        form#form-fields(action='/login', method='post')
+        h1#heading.kaisei-tokumin-extrabold Login sebagai #{role}
+        form#form-fields(action= formPath , method='post')
           .input-fields.kaisei-tokumin-regular
             label(for='email') Email:
             input#username(type='text', name='email', required='')
@@ -22,4 +22,5 @@ html(lang='en')
           input#submit-button(type='submit', value='Login')
         p#create-account
           | Do not have an account? create one 
-          a(href='/register') here
+          a(href= registerPath ) here
+    script(src='public/script/login.js')

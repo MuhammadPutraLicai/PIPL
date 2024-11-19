@@ -85,6 +85,7 @@
     padding: 0.5em;
     background-color: #006F33;
     color: white;
+    cursor: pointer;
 }
 
 #create-account{

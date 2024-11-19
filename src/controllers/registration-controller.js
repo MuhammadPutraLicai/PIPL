@@ -1,4 +1,5 @@
 const Customer = require('./../models/customer-model');
+const {Pemasok} = require('./../models/pemasok-model');
 
 class Registration{
     createNewCustomer(customerData) {
@@ -12,6 +13,28 @@ class Registration{
 
         const newCustomer = new Customer();
         newCustomer.createCustomer(newCustomerData);
+    }
+
+    createNewPemasok(pemasokData){
+        const newPemasokData = {
+            deskripsi : pemasokData['deskripsi'],
+            nomor_telepon : pemasokData['nomor_telepon'],
+            alamat : pemasokData['alamat'],
+            link_logo : null,
+            jenis_perusahaan : pemasokData['jenis_perusahaan'],
+            jenis_produk : pemasokData['jenis_produk'],
+            link_website : null,
+            email : pemasokData['email'],
+            password : pemasokData['password'],
+            tahun_diidirikan : null,
+            owner : null,
+            nama_perusahaan : pemasokData['nama_perusahaan'],
+            bookmark : null,
+            daftar_produk : null
+        };
+
+        const newPemasok = new Pemasok();
+        newPemasok.createPemasok(newPemasokData);
     }
 }
 

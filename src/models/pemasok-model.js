@@ -1,21 +1,33 @@
-const {getAllData} = require('../../configs/db');
+const {getAllData, addDataBookmarks,
+       addDataDaftarProduk, addDataPemasok} = require('../../configs/db');
 
 class Pemasok{//merepresentasikan halaman profil pemasok
-    constructor(id, data){
-        this.id = id;
-        this.deskripsi = data.deskripsi;
-        this.nomorTelepon = data.nomor_telepon;
-        this.alamat = data.alamat;
-        this.linkLogo = data.link_logo;
-        this.jenisPerusahaan = data.jenis_perusahaan;
-        this.jenisProduk = data.jenis_produk;
-        this.linkWebsite = data.link_website;
-        this.email = data.email;
-        this.tahunDiidirikan = data.tahun_didirikan;
-        this.owner = data.owner;
-        this.namaPerusahaan = data.nama_perusahaan;
-        this.bookmark = data.bookmark;
-        this.catalog = data.catalog;
+    constructor(id = null, data = null){
+        if(data){
+            this.id = id;
+            this.deskripsi = data.deskripsi;
+            this.nomorTelepon = data.nomor_telepon;
+            this.alamat = data.alamat;
+            this.linkLogo = data.link_logo;
+            this.jenisPerusahaan = data.jenis_perusahaan;
+            this.jenisProduk = data.jenis_produk;
+            this.linkWebsite = data.link_website;
+            this.email = data.email;
+            this.tahunDiidirikan = data.tahun_didirikan;
+            this.owner = data.owner;
+            this.namaPerusahaan = data.nama_perusahaan;
+            this.bookmark = data.bookmark;
+            this.daftarProduk = data.daftar_produk;  
+        }
+    }
+
+    async createPemasok(addedData){
+        //bikin dokumen bookmark untuk akun pemasok baru
+        const newPemasokBookmarkId = await addDataBookmarks();
+        const newPemasokDaftarProdukId = await addDataDaftarProduk();
+        addedData['bookmark'] = newPemasokBookmarkId;
+        addedData['daftar_produk'] = newPemasokDaftarProdukId;
+        addDataPemasok(addedData).then(()=>{console.log('success')});
     }
 }
 
@@ -45,4 +57,4 @@ class CardPemasokModel{//merepresentasikan daftar - daftar kartu yang ditampilka
     }
 }
 
-module.exports = {CardPemasokModel};
+module.exports = {CardPemasokModel, Pemasok};

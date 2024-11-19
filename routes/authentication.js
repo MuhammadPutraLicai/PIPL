@@ -46,7 +46,20 @@ authentication.get('/register-customer', (req, res)=>{
 
 //routes to receive register data
 authentication.post('/register-pemasok', (req, res)=>{
+    const newPemasok = {
+        nama_perusahaan : req.body['nama-perusahaan'],
+        jenis_perusahaan : req.body['jenis-perusahaan'],
+        jenis_produk : req.body['jenis-produk'],
+        nomor_telepon : req.body['nomor-telepon'],
+        email : req.body['email'],
+        alamat : req.body['alamat'],
+        password : req.body['kata-sandi'],
+        deskripsi : req.body['deskripsi']
+    };
 
+    const registerController = new Registration();
+    registerController.createNewPemasok(newPemasok);
+    res.send("you data has been received, thank you");
 });
 
 authentication.post('/register-customer', (req, res)=>{

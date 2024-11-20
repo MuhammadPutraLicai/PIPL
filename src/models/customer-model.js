@@ -13,7 +13,8 @@ class Customer{
         //create new bookmark for the new customer
         const newCustomerBookmarkId = await addDataBookmarks();
         addedData['bookmark'] = newCustomerBookmarkId;
-        addDataCustomer(addedData).then(()=>{console.log('success')});
+        const newCustomerId = await addDataCustomer(addedData);
+        return newCustomerId;
     }
 
     async authenticateCustomer(email, password, coll = "customer"){

@@ -12,7 +12,8 @@ class Registration{
         };
 
         const newCustomer = new Customer();
-        newCustomer.createCustomer(newCustomerData);
+        const newCustomerId = await newCustomer.createCustomer(newCustomerData);
+        return newCustomerId;
     }
 
     async createNewPemasok(pemasokData){
@@ -34,7 +35,8 @@ class Registration{
         };
 
         const newPemasok = new Pemasok();
-        newPemasok.createPemasok(newPemasokData);
+        const newPemasokId = await newPemasok.createPemasok(newPemasokData);
+        return newPemasokId;
     }
 }
 

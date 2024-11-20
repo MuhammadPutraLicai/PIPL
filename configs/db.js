@@ -58,12 +58,14 @@ async function addDataPemasok(pemasokData) {
         }
         console.log('successfully creating new directory for new pemasok');
     });
+    return docRef.id;
 }
 
 //menambahkan dokumen baru ke collection customer
 async function addDataCustomer(customerData){
     const docRef = await addDoc(collection(db, "customer"), customerData);//customerData is js object
     console.log("New customer document has been created with ID :", docRef.id);
+    return docRef.id;
 }
 
 //menambahkan dokumen baru dan update dokumen ke collection bookmark

@@ -27,7 +27,8 @@ class Pemasok{//merepresentasikan halaman profil pemasok
         const newPemasokDaftarProdukId = await addDataDaftarProduk();
         addedData['bookmark'] = newPemasokBookmarkId;
         addedData['daftar_produk'] = newPemasokDaftarProdukId;
-        addDataPemasok(addedData).then(()=>{console.log('success')});
+        const newPemasokId = await addDataPemasok(addedData);
+        return newPemasokId;
     }
 
     async authenticatePemasok(email, password, coll = "pemasok"){

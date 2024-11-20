@@ -68,7 +68,7 @@ authentication.get('/register-customer', (req, res)=>{
 });
 
 //routes to receive register data
-authentication.post('/register-pemasok', (req, res)=>{
+authentication.post('/register-pemasok', async (req, res)=>{
     const newPemasok = {
         nama_perusahaan : req.body['nama-perusahaan'],
         jenis_perusahaan : req.body['jenis-perusahaan'],
@@ -81,12 +81,22 @@ authentication.post('/register-pemasok', (req, res)=>{
     };
 
     const registerController = new Registration();
-    registerController.createNewPemasok(newPemasok).then(()=>{
-       res.send("you data has been received, thank you"); 
-    });
+    await registerController.createNewPemasok(newPemasok);
+    
+    const authPemasok = new Login();
+    await authPemasok.authPemasok(newPemasok.email, newPemasok.password);
+    if (authPemasok.userAuth == 1) {
+        res.cookie("userId", authPemasok.userId);
+        res.cookie("bookmark", authPemasok.userData.bookmark);
+        res.cookie("daftar_produk", authPemasok.userData.daftar_produk);
+        req.session.userId = authPemasok.userId;
+        res.render('register-success.pug', {path: "/main-pemasok"});
+    }else{
+        res.status(401).send("something went wrong");
+    }
 });
 
-authentication.post('/register-customer', (req, res)=>{
+authentication.post('/register-customer', async (req, res)=>{
     const newCustomer = {
         nama : req.body['nama'],
         nomor_telepon : req.body['nomor-telepon'],
@@ -94,9 +104,18 @@ authentication.post('/register-customer', (req, res)=>{
         kata_sandi : req.body['kata-sandi']
     };
     const registerController = new Registration();
-    registerController.createNewCustomer(newCustomer).then(()=>{
-        res.send("file has been received");
-    });
+    await registerController.createNewCustomer(newCustomer);
+
+    const authCustomer = new Login();
+    await authCustomer.authCustomer(newCustomer.email, newCustomer.kata_sandi);
+    if (authCustomer.userAuth == 1) {
+        res.cookie("userId", authCustomer.userId);
+        res.cookie("bookmark", authCustomer.userData.bookmark);
+        req.session.userId = authCustomer.userId;
+        res.render('register-success.pug', {path: "/main-customer"});
+    }else{
+        res.status(401).send("something went wrong");
+    }
 });
 
 

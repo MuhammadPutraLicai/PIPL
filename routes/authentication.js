@@ -31,6 +31,10 @@ authentication.post('/login-pemasok', async (req, res)=>{
     const authPemasok = new Login();
     await authPemasok.authPemasok(email, password);
     if (authPemasok.userAuth == 1) {
+        res.cookie("userId", authPemasok.userId);
+        res.cookie("bookmark", authPemasok.userData.bookmark);
+        res.cookie("daftar_produk", authPemasok.userData.daftar_produk);
+        req.session.userId = authPemasok.userId;
         res.status(200).json({message:"ok", role:"pemasok"});
     }else{
         res.status(401).json({message:"You're putting the wrong email or password"});
@@ -40,10 +44,13 @@ authentication.post('/login-pemasok', async (req, res)=>{
 authentication.post('/login-customer', async (req, res)=>{
     const email = req.body.email;
     const password = req.body.password;
-    const authPemasok = new Login();
-    await authPemasok.authCustomer(email, password);
-    if (authPemasok.userAuth == 1) {
-        res.status(200).json({message:"ok", role:"pemasok"});
+    const authCustomer = new Login();
+    await authCustomer.authCustomer(email, password);
+    if (authCustomer.userAuth == 1) {
+        res.cookie("userId", authCustomer.userId);
+        res.cookie("bookmark", authCustomer.userData.bookmark);
+        req.session.userId = authCustomer.userId;
+        res.status(200).json({message:"ok", role:"customer"});
     }else{
         res.status(401).json({message:"You're putting the wrong email or password"});
     }
@@ -74,8 +81,9 @@ authentication.post('/register-pemasok', (req, res)=>{
     };
 
     const registerController = new Registration();
-    registerController.createNewPemasok(newPemasok);
-    res.send("you data has been received, thank you");
+    registerController.createNewPemasok(newPemasok).then(()=>{
+       res.send("you data has been received, thank you"); 
+    });
 });
 
 authentication.post('/register-customer', (req, res)=>{
@@ -86,8 +94,9 @@ authentication.post('/register-customer', (req, res)=>{
         kata_sandi : req.body['kata-sandi']
     };
     const registerController = new Registration();
-    registerController.createNewCustomer(newCustomer);
-    res.send("file has been received");
+    registerController.createNewCustomer(newCustomer).then(()=>{
+        res.send("file has been received");
+    });
 });
 
 

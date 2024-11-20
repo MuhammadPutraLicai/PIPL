@@ -2,7 +2,7 @@ const Customer = require('./../models/customer-model');
 const {Pemasok} = require('./../models/pemasok-model');
 
 class Registration{
-    createNewCustomer(customerData) {
+    async createNewCustomer(customerData) {
         const newCustomerData = {
             nama : customerData['nama'],
             email : customerData['email'],
@@ -15,7 +15,7 @@ class Registration{
         newCustomer.createCustomer(newCustomerData);
     }
 
-    createNewPemasok(pemasokData){
+    async createNewPemasok(pemasokData){
         const newPemasokData = {
             deskripsi : pemasokData['deskripsi'],
             nomor_telepon : pemasokData['nomor_telepon'],

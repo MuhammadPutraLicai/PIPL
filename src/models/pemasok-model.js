@@ -1,5 +1,5 @@
 const {getAllData, addDataBookmarks,
-       addDataDaftarProduk, addDataPemasok} = require('../../configs/db');
+       addDataDaftarProduk, addDataPemasok, getDataByEmailPassword} = require('../../configs/db');
 
 class Pemasok{//merepresentasikan halaman profil pemasok
     constructor(id = null, data = null){
@@ -28,6 +28,11 @@ class Pemasok{//merepresentasikan halaman profil pemasok
         addedData['bookmark'] = newPemasokBookmarkId;
         addedData['daftar_produk'] = newPemasokDaftarProdukId;
         addDataPemasok(addedData).then(()=>{console.log('success')});
+    }
+
+    async authenticatePemasok(email, password, coll = "pemasok"){
+        const result = await getDataByEmailPassword(email, password, coll);//expected result = {id: 'doc_id', data: 'all doc data'}
+        return result;
     }
 }
 

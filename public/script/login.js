@@ -23,7 +23,7 @@ submitButton.addEventListener('click', (event)=>{
 
     xhrClient.onload = ()=>{
         if(xhrClient.status != 200){
-            alert('Error: ' + xhrClient.status);
+            alert('Error: ' + xhrClient.status + ' You have the wrong password or email');
             return;
         }
         let response = xhrClient.response;

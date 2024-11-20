@@ -23,7 +23,7 @@ class Registration{
             link_logo : "https://placehold.co/600x600",
             jenis_perusahaan : pemasokData['jenis_perusahaan'],
             jenis_produk : pemasokData['jenis_produk'],
-            link_website : null,
+            link_website : '#',
             email : pemasokData['email'],
             password : pemasokData['password'],
             tahun_diidirikan : "-",

@@ -2,6 +2,7 @@ const { initializeApp, deleteApp } = require("firebase/app");
 const { doc, setDoc, getDoc, collection, 
         query, where, terminate, addDoc,
         getDocs, getFirestore, limit, updateDoc } = require("firebase/firestore"); 
+const fs = require('fs');
 const fireBaseConfig = require("./config.js");
 // Initialize Firebase
 const app = initializeApp(fireBaseConfig);
@@ -49,7 +50,14 @@ async function addDataPemasok(pemasokData) {
     });*/
     const docRef = await addDoc(collection(db, "pemasok"), pemasokData);
     console.log("New pemasok document has been created with ID :", docRef.id);
-
+    fs.mkdir(`./uploads/${docRef.id}`, (err)=>{
+        if (err) {
+            console.log('Failed to create directory for new pemasok');
+            console.error(err);
+            return;
+        }
+        console.log('successfully creating new directory for new pemasok');
+    });
 }
 
 //menambahkan dokumen baru ke collection customer
@@ -82,11 +90,34 @@ async function addDataDaftarProduk(daftarProduk = null, docId = null){
     }
 }
 
+//mengambil dokumen pada collection berdasarkan query
+async function getDataByEmailPassword(email, password, coll){
+    const docRef = collection(db, coll);
+    const q = query(docRef, where("email", "==", email), where("password", "==", password));
+    let result = {};
+
+    const querySnapShot = await getDocs(q);
+
+    if (querySnapShot.empty) {//check if document doesn't exist after searching
+        console.log(`No document found with email ${email} in ${coll} collection`);
+        result = null;
+        return result;
+    }
+    querySnapShot.forEach((doc)=>{
+        //console.log(doc.id, "=>", doc.data());
+        result['id'] = doc.id;
+        result['data'] = doc.data();
+    });
+    console.log(`found document with email : ${email}`);
+    return result;
+}
+
 module.exports = {
     getAllData,
     getDataById,
     addDataPemasok,
     addDataCustomer,
     addDataBookmarks,
-    addDataDaftarProduk
+    addDataDaftarProduk,
+    getDataByEmailPassword
 };

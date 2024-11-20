@@ -1,5 +1,6 @@
 const express = require('express');
 const Registration = require('./../src/controllers/registration-controller');
+const Login = require('./../src/controllers/login-controller')
 const authentication = express.Router();
 authentication.use('/public', express.static( __dirname + '/../public'));
 
@@ -24,17 +25,28 @@ authentication.get('/login-customer', (req, res)=>{
 });
 
 //routes to receive and process login data----
-authentication.post('/login-pemasok', (req, res)=>{
-    console.log(req.body.email);
-    console.log(req.body.password);
-    console.log(__dirname);
-    res.status(200).json({message:"ok", role:"pemasok"});
+authentication.post('/login-pemasok', async (req, res)=>{
+    const email = req.body.email;
+    const password = req.body.password;
+    const authPemasok = new Login();
+    await authPemasok.authPemasok(email, password);
+    if (authPemasok.userAuth == 1) {
+        res.status(200).json({message:"ok", role:"pemasok"});
+    }else{
+        res.status(401).json({message:"You're putting the wrong email or password"});
+    }
 });
 
-authentication.post('/login-customer', (req, res)=>{
-    console.log(req.body.email);
-    console.log(req.body.password);
-    res.status(200).json({message:"ok", role:"customer"});
+authentication.post('/login-customer', async (req, res)=>{
+    const email = req.body.email;
+    const password = req.body.password;
+    const authPemasok = new Login();
+    await authPemasok.authCustomer(email, password);
+    if (authPemasok.userAuth == 1) {
+        res.status(200).json({message:"ok", role:"pemasok"});
+    }else{
+        res.status(401).json({message:"You're putting the wrong email or password"});
+    }
 });
 
 

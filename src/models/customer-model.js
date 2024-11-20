@@ -1,4 +1,4 @@
-const {addDataCustomer, addDataBookmarks} = require('./../../configs/db');
+const {addDataCustomer, addDataBookmarks, getDataByEmailPassword} = require('./../../configs/db');
 
 class Customer{
     constructor(id = null, nama = null, email = null, nomor_telepon = null){
@@ -15,6 +15,14 @@ class Customer{
         addedData['bookmark'] = newCustomerBookmarkId;
         addDataCustomer(addedData).then(()=>{console.log('success')});
     }
+
+    async authenticateCustomer(email, password, coll = "customer"){
+        const result = await getDataByEmailPassword(email, password, coll);//result = {id: 'doc_id', data: 'all doc data'}
+        return result;
+    }
 }
+
+//const percobaan = new Customer();
+//percobaan.authenticateCustomer("merimerah@gmail.com", "1212").then((result)=>{console.log(result)});
 
 module.exports = Customer;

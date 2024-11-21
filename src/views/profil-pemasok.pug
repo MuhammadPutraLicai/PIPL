@@ -5,6 +5,8 @@ html(lang='en')
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
     link(rel='stylesheet', href='public/style/global-style.css')
     link(rel='stylesheet', href='public/style/profil-pemasok.css')
+    link(rel='stylesheet', href='public/style/daftar-produk.css')
+    link(rel='stylesheet', href='public/style/footer.css')
     title Profil
   body
     #profil
@@ -46,3 +48,5 @@ html(lang='en')
       #location-content
         h3#location-title Lokasi Perusahaan
         p#location-info #{data.alamat};
+    include ./components/daftar-produk.pug
+    include ./components/footer.pug

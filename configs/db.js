@@ -33,11 +33,12 @@ async function getDataById(collectionName, docId) {
     if (docSnap.exists()) {
         result.id = docSnap.id;
         result.data = docSnap.data();
+        console.log(`found dokument with in ${collectionName} with id : ${docId}`);
         return result;
     }else{
         console.error(`You're trying to read a document in ${collectionName},
          but document with id : ${docId} doesn't exist`);
-        return; 
+        return 0; 
     }
 }
 

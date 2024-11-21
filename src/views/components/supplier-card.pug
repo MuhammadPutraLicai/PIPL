@@ -1,4 +1,4 @@
-.supplier(id='#')
+.supplier(id= card.id)
     .card-heading
         .card-image(style=`background-image: url('${card.linkLogo}');`)
         .card-info
@@ -11,4 +11,4 @@
             | #{card.jenisProduk}
     .card-content
         p.description.libre-baskerville-regular #{card.deskripsi}
-        button.league-spartan( id = card.id) Lihat Pemasok
+        button.league-spartan.card-button( id = card.id, onclick='pemasokCardButtonClicked(event)') Lihat Pemasok

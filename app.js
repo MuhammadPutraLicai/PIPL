@@ -1,9 +1,10 @@
 const express = require('express');
 const session = require('express-session');
-var cookieParser = require('cookie-parser');
+const cookieParser = require('cookie-parser');
+const path = require('path');
 const {getCustomerMainPage, getPemasokMainPage} = require('./src/controllers/main-page-controller');
-const Profil = require('./src/controllers/pemasok-profil-controller');
 const authentication = require('./routes/authentication');
+const profil = require('./routes/profil-pemasok');
 const app = express();
 
 
@@ -16,13 +17,16 @@ app.use(session({
     saveUninitialized: true
     }
 ));
-app.use('/public', express.static( __dirname + '/public'));
+app.use('/public',express.static(path.join(__dirname, 'public')));
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.set('view engine', 'pug');
-app.set('views','./src/views');
+app.set('views', './src/views');
 
 app.get('/', (req, res)=>{//redirect to login 
     res.redirect('/authentication/login')
 });
+
+app.use('/profil-pemasok', profil);
 
 app.get('/main-pemasok', (req, res)=>{//to pemasok main page
     if (req.session.userId && (req.session.role == "pemasok")) {
@@ -43,11 +47,6 @@ app.get('/main-customer', (req, res)=>{//to customer main page
         res.send("please login as customer");
     }
 })
-
-app.get('/profil-pemasok', (req, res)=>{
-    const profil = new Profil();
-    profil.showPemasokProfil("1", req, res);
-});
 
 app.get('/logout', (req, res)=>{
     console.log(`user with id : ${req.session.userId} has logged out`);

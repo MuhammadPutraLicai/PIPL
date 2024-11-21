@@ -1,0 +1,8 @@
+.catalog(id='#')
+    h2#catalog-title Product yang Ditawarkan
+    .catalog-list
+        if produk_list
+            each produk in produk_list
+                include ./produk.pug
+        else 
+            h2.no-product You Don't have any product

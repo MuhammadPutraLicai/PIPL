@@ -35,6 +35,7 @@ authentication.post('/login-pemasok', async (req, res)=>{
         res.cookie("bookmark", authPemasok.userData.bookmark);
         res.cookie("daftar_produk", authPemasok.userData.daftar_produk);
         req.session.userId = authPemasok.userId;
+        req.session.role = "pemasok";
         res.status(200).json({message:"ok", role:"pemasok"});
     }else{
         res.status(401).json({message:"You're putting the wrong email or password"});
@@ -50,6 +51,7 @@ authentication.post('/login-customer', async (req, res)=>{
         res.cookie("userId", authCustomer.userId);
         res.cookie("bookmark", authCustomer.userData.bookmark);
         req.session.userId = authCustomer.userId;
+        req.session.role = "customer";
         res.status(200).json({message:"ok", role:"customer"});
     }else{
         res.status(401).json({message:"You're putting the wrong email or password"});
@@ -90,6 +92,7 @@ authentication.post('/register-pemasok', async (req, res)=>{
         res.cookie("bookmark", authPemasok.userData.bookmark);
         res.cookie("daftar_produk", authPemasok.userData.daftar_produk);
         req.session.userId = authPemasok.userId;
+        req.session.role = "pemasok";
         res.render('register-success.pug', {path: "/main-pemasok"});
     }else{
         res.status(401).send("something went wrong");
@@ -112,6 +115,7 @@ authentication.post('/register-customer', async (req, res)=>{
         res.cookie("userId", authCustomer.userId);
         res.cookie("bookmark", authCustomer.userData.bookmark);
         req.session.userId = authCustomer.userId;
+        req.session.role = "customer";
         res.render('register-success.pug', {path: "/main-customer"});
     }else{
         res.status(401).send("something went wrong");

@@ -25,10 +25,20 @@ async function getAllData(collectionName){
 
 //mengambil dokumen berdasarkan id dokumen
 async function getDataById(collectionName, docId) {
+    const result = {};
     const docRef = doc(db, collectionName, docId);
     const docSnap = await getDoc(docRef);
-    console.log(docSnap.id);
-    console.log(docSnap.data());
+    //console.log(docSnap.id);
+    //console.log(docSnap.data());
+    if (docSnap.exists()) {
+        result.id = docSnap.id;
+        result.data = docSnap.data();
+        return result;
+    }else{
+        console.error(`You're trying to read a document in ${collectionName},
+         but document with id : ${docId} doesn't exist`);
+        return; 
+    }
 }
 
 //menambahkan dokumen baru dengan id random(dibuat oleh firebase)
@@ -123,3 +133,8 @@ module.exports = {
     addDataDaftarProduk,
     getDataByEmailPassword
 };
+
+/*below code is for testing purpose
+getDataById("pemasok", "1").then((result)=>{
+    console.log(result);
+});*/

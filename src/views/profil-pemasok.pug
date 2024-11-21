@@ -1,0 +1,48 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    link(rel='stylesheet', href='public/style/global-style.css')
+    link(rel='stylesheet', href='public/style/profil-pemasok.css')
+    title Profil
+  body
+    #profil
+      h2.page-title(id = id) Profil Perusahaan
+      #detail-container
+        #logo-perusahaan(style=`background-image: url('${data.link_logo}');`)
+        #detail
+          h3#nama-perusahaan #{data.nama_perusahaan}
+          #informasi-perusahaan
+            #informasi-umum
+              .item-informasi-umum
+                p.informasi-title Jenis Perusahaan
+                p #{data.jenis_perusahaan}
+              .item-informasi-umum
+                p.informasi-title Produk
+                p #{data.jenis_produk}
+              .item-informasi-umum
+                p.informasi-title Tahun didirikan
+                p #{data.tahun_didirikan}
+              .item-informasi-umum
+                p.informasi-title Owner
+                p #{data.owner}
+            #informasi-contact
+              .item-informasi-contact
+                span.ic--baseline-phone
+                | Lihat nomor telepon
+              .item-informasi-contact
+                span.mingcute--link-fill
+                | Kunjungi website
+              .item-informasi-contact
+                span.ic--baseline-email
+                | E-mail
+          #tombol-tambahkan Tambahkan+
+    #deskripsi
+      h2#deskripsi-title Deskripsi Perusahaan
+      p#deskripsi-content #{data.deskripsi}
+    #location-container
+      #map-image
+      #location-content
+        h3#location-title Lokasi Perusahaan
+        p#location-info #{data.alamat};

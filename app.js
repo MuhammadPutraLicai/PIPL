@@ -5,6 +5,7 @@ const path = require('path');
 const {getCustomerMainPage, getPemasokMainPage} = require('./src/controllers/main-page-controller');
 const authentication = require('./routes/authentication');
 const profil = require('./routes/profil-pemasok');
+const bookmark = require('./routes/bookmark');
 const app = express();
 
 
@@ -47,6 +48,8 @@ app.get('/main-customer', (req, res)=>{//to customer main page
         res.send("please login as customer");
     }
 })
+
+app.use('/bookmark', bookmark);
 
 app.get('/logout', (req, res)=>{
     console.log(`user with id : ${req.session.userId} has logged out`);

@@ -33,7 +33,7 @@ async function getDataById(collectionName, docId) {
     if (docSnap.exists()) {
         result.id = docSnap.id;
         result.data = docSnap.data();
-        console.log(`found dokument with in ${collectionName} with id : ${docId}`);
+        console.log(`found dokument in collection ${collectionName} with id : ${docId}`);
         return result;
     }else{
         console.error(`You're trying to read a document in ${collectionName},
@@ -84,6 +84,7 @@ async function addDataBookmarks(bookmarks = null, docId = null){
     if(bookmarks){
         const docRef = await setDoc(doc(db, "bookmarks", docId), { daftar_pemasok : bookmarks});
         console.log(`bookmarks with id : ${docId} has been updated`);
+        return 1;
     }else{
         const docRef = await addDoc(collection(db, "bookmarks"),{ daftar_pemasok : null});
         console.log("New bookmark document has been written with ID :", docRef.id);

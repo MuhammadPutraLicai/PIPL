@@ -49,13 +49,28 @@ function extractFirstTwentyWords(str) {
 }
 
 class CardPemasok{//merepresentasikan satu kartu pemasok pada halaman utama
-    constructor(id, data){
-        this.id = id;
-        this.linkLogo = data.link_logo;
-        this.namaPerusahaan = data.nama_perusahaan;
-        this.jenisPerusahaan = data.jenis_perusahaan;
-        this.jenisProduk = data.jenis_produk;
-        this.deskripsi = extractFirstTwentyWords(data.deskripsi);
+    constructor(id = null, data = null){
+        if(id){
+            this.id = id;
+            this.linkLogo = data.link_logo;
+            this.namaPerusahaan = data.nama_perusahaan;
+            this.jenisPerusahaan = data.jenis_perusahaan;
+            this.jenisProduk = data.jenis_produk;
+            this.deskripsi = extractFirstTwentyWords(data.deskripsi);            
+        }
+
+    }
+
+    async getCardPemasok(idPemasok){
+        const cardData = {};
+        const result = await getDataById("pemasok", idPemasok);
+        cardData['id'] = result.id;
+        cardData['link_logo'] = result.data['link_logo']; 
+        cardData['nama_perusahaan'] = result.data['nama_perusahaan'];
+        cardData['jenis_perusahaan'] = result.data['jenis_perusahaan'];
+        cardData['jenis_produk'] = result.data['jenis_produk'];
+        cardData['deskripsi'] = extractFirstTwentyWords(result.data['deskripsi']);
+        return cardData;
     }
 }
 
@@ -74,11 +89,16 @@ class CardPemasokModel{//merepresentasikan daftar - daftar kartu yang ditampilka
     }
 }
 
-module.exports = {CardPemasokModel, Pemasok};
+module.exports = {CardPemasokModel, Pemasok, CardPemasok};
 
 /*below program is for testing purpose 
 const coba = new Pemasok();
 coba.getPemasokData("pemasok","1").then(()=>{
     console.log(coba.id);
     console.log(coba.data);
+});*/
+
+/*const coba = new CardPemasok();
+coba.getCardPemasok("1").then((result)=>{
+    console.log(result);
 });*/

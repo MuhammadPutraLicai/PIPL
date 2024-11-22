@@ -18,7 +18,7 @@
                 </div>
             </div>
             <div class="league-spartan nav-button" href="#">Profil</div>
-            <div class="league-spartan nav-button" href="#">Bookmark</div>
+            <div class="league-spartan nav-button" href="#" id="bookmark-button" onclick="showBookmark()">Bookmark</div>
         </div>
     </nav>
 
@@ -54,7 +54,7 @@
                         <div class="item-informasi-contact"><span class="ic--baseline-email"></span>E-mail</div>
                     </div>
                 </div>
-                <div id="tombol-tambahkan">Tambahkan+</div>
+                <div id="tombol-tambahkan" onclick="document.getElementById('id01').style.display='block'">Tambahkan+</div>
             </div>
         </div>
     </div>
@@ -102,31 +102,30 @@
                 </div>
             </div>
 
-            <div class="catalog-item">
-                <div class="item-image"></div>
-                <div class="item-info">
-                    <h4 class="item-name">nama barang</h4>
-                    <p class="item-description">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut 
-                        labore et dolore magna aliqua. Ut enim ad minim veniam, 
-                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-                    </p>
-                </div>
-            </div>
-
-            <div class="catalog-item">
-                <div class="item-image"></div>
-                <div class="item-info">
-                    <h4 class="item-name">nama barang</h4>
-                    <p class="item-description">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut 
-                        labore et dolore magna aliqua. Ut enim ad minim veniam, 
-                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-                    </p>
-                </div>
-            </div>
-
         </div>
     </div>
+    <div id="bookmark-modal">
+        <span id="close-bookmark" onclick="closeBookmark()">&times;</span>
+        <h1 id="bookmark-title">Bookmarks</h1>
+        <div id="bookmark-content">
+            <div class="bookmark-item" id="#">
+                <div class="bookmark-card-heading">
+                    <div class="card-image"></div>
+                    <div class="card-info">
+                        <h4 class="nama-perusahaan league-spartan">PT Indojaya Group tbk</h4>
+                        <div class="jenis-perusahaan league-spartan"><span class="ic--baseline-category"></span>Manufaktur</div>
+                        <div class="jenis-produk league-spartan"><span class="mdi--tag"></span>Food</div>
+                    </div>
+                </div>
+                <div class="bookmark-card-content">
+                    <p class="description libre-baskerville-regular">Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+                        sed do eiusmod tempor incididunt ut labore et dolore 
+                        magna aliqua asdfdsfsadf Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet</p>
+                    <button class="league-spartan" onclick="pemasokCardButtonClicked()" id="123">Lihat Pemasok</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="bookmark.js"></script>
 </body>
 </html>

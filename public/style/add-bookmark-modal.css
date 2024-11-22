@@ -1,0 +1,54 @@
+:root {
+    --teal: #085F63;
+}
+
+#tombol-tambahkan {
+    opacity: 0.9;
+}
+  
+#tombol-tambahkan:hover {
+    opacity:1;
+}
+  
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left:calc(50% - 20%);
+    top: 0;
+    width: 40%; /* Full width */
+    /*height: 40%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: #ffffff;
+    border: 1px solid black;
+}
+
+.modal-content{
+    padding: 16px;
+    text-align: center;
+}
+
+.modal-content #success-text{
+    color: var(--teal);
+    font-size: 1.5em;
+}
+
+  /* The Modal Close Button (x) */
+.close {
+    font-size: 50px;
+    font-weight: bold;
+    color: #f44336;
+}
+  
+  .close:hover,
+  .close:focus {
+    cursor: pointer;
+  }
+  /* Change styles for cancel button and delete button on extra small screens */
+  @media screen and (max-width: 800px) {
+    .modal{
+      width: 100%;
+      left: 0;
+    }
+  }

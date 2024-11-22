@@ -27,7 +27,7 @@ class Registration{
             link_website : '#',
             email : pemasokData['email'],
             password : pemasokData['password'],
-            tahun_diidirikan : "-",
+            tahun_didirikan : "-",
             owner : "-",
             nama_perusahaan : pemasokData['nama_perusahaan'],
             bookmark : null,

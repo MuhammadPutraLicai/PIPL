@@ -4,11 +4,22 @@ html(lang='en')
     meta(charset='UTF-8')
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
     link(rel='stylesheet', href='public/style/global-style.css')
+    
+    if role == "pemasok"
+      link(rel='stylesheet', href='public/style/nav-pemasok.css')
+    else 
+      link(rel='stylesheet', href='public/style/nav-customer.css')
     link(rel='stylesheet', href='public/style/profil-pemasok.css')
     link(rel='stylesheet', href='public/style/daftar-produk.css')
     link(rel='stylesheet', href='public/style/footer.css')
+    link(rel='stylesheet', href='public/style/add-bookmark-modal.css')
+    link(rel='stylesheet', href='public/style/bookmark.css')
     title Profil
   body
+    if role == "pemasok"
+      include ./pemasok/pemasok-nav.pug
+    else
+      include ./customer/customer-nav.pug
     #profil
       h2.page-title(id = id) Profil Perusahaan
       #detail-container
@@ -39,7 +50,7 @@ html(lang='en')
               .item-informasi-contact
                 span.ic--baseline-email
                 | E-mail
-          #tombol-tambahkan Tambahkan+
+          #tombol-tambahkan(onclick='openModal()') Tambahkan+
     #deskripsi
       h2#deskripsi-title Deskripsi Perusahaan
       p#deskripsi-content #{data.deskripsi}
@@ -50,3 +61,8 @@ html(lang='en')
         p#location-info #{data.alamat};
     include ./components/daftar-produk.pug
     include ./components/footer.pug
+    include ./components/add-bookmark-modal.pug
+    include ./components/bookmark.pug
+    script(src='public/script/logout.js')
+    script(src='public/script/add-bookmark-modal.js')
+    script(src='public/script/bookmark.js')

@@ -1,5 +1,5 @@
 const express = require('express');
-const {updateBookmark, createBookmarkList} = require('../src/controllers/bookmark-controller');
+const {updateBookmark, createBookmarkList, deleteBookmark} = require('../src/controllers/bookmark-controller');
 const bookmark = express.Router();
 
 bookmark.post('/add', async (req, res)=>{
@@ -24,6 +24,14 @@ bookmark.get('/retrieve', async(req, res)=>{
         res.status(200);
         res.json({});
     }
+});
+
+bookmark.delete('/delete', async(req, res)=>{
+    const userBookmark = req.cookies.bookmark;
+    const deletedPemasok = req.body.pemasokId;
+    console.log(`deleting pemasok with id : ${deletedPemasok} from bookmarks`);
+    await deleteBookmark(userBookmark, deletedPemasok);
+    res.json({message : "ok"});
 });
 
 module.exports = bookmark;

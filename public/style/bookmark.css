@@ -37,7 +37,7 @@
 
 #bookmark-content{
     padding: 16px;
-    border: 1px solid black;
+    background-color: #eeeeee;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
@@ -107,5 +107,18 @@
     font-weight: 600;
     padding: 10px 20px;
     border-radius: 5px;
+    cursor: pointer;
+}
+
+.remove-bookmark{
+    position: relative;
+    top: 0em;
+    right: 0em;
+    font-size: 30px;
+    font-weight: bold;
+    color: #f44336;
+}
+
+.remove-bookmark:hover{
     cursor: pointer;
 }

@@ -81,7 +81,7 @@ async function addDataCustomer(customerData){
 
 //menambahkan dokumen baru dan update dokumen ke collection bookmark
 async function addDataBookmarks(bookmarks = null, docId = null){
-    if(bookmarks){
+    if(docId){
         const docRef = await setDoc(doc(db, "bookmarks", docId), { daftar_pemasok : bookmarks});
         console.log(`bookmarks with id : ${docId} has been updated`);
         return 1;

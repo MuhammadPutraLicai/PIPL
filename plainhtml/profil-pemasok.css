@@ -417,7 +417,7 @@
 .bookmark-card-heading .card-image{
     min-width: 30%;
     border-radius: 5px;
-    /*background-image: url("https://placehold.co/600x600");*/
+    background-image: url("https://placehold.co/600x600");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -460,6 +460,19 @@
     font-weight: 600;
     padding: 10px 20px;
     border-radius: 5px;
+    cursor: pointer;
+}
+
+.remove-bookmark{
+    position: relative;
+    top: 0em;
+    right: 0em;
+    font-size: 30px;
+    font-weight: bold;
+    color: #f44336;
+}
+
+.remove-bookmark:hover{
     cursor: pointer;
 }
 

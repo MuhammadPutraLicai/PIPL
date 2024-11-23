@@ -36,6 +36,22 @@ async function createBookmarkList(userBookmark){
         return result;
     }
 }
-module.exports = {updateBookmark, createBookmarkList};
+
+async function deleteBookmark(userBookmark, selectedPemasokId){
+    const bookmarkId = userBookmark;//ambil id bookmark dari user
+    const newBookmark = new Bookmark();
+    let bookmarkContent = await newBookmark.retrieveBookmark(bookmarkId);
+    if (bookmarkContent.length !== 1){
+        const newBookmarkContent = bookmarkContent.filter(item=> item!== selectedPemasokId);
+        bookmarkContent = newBookmarkContent;
+    }else{
+        bookmarkContent = null;
+    }
+    console.log(bookmarkContent);
+    await newBookmark.updateBookmark(bookmarkContent, bookmarkId);
+    return 1;    
+}
+
+module.exports = {updateBookmark, createBookmarkList, deleteBookmark};
 
 //createBookmarkList("7mscjzLMhlIqm3V1J6UC").then(result =>{console.log(result)});

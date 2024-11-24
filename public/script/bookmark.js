@@ -6,7 +6,7 @@ function closeBookmark() {
     });
 }
 
-function removeBookmark(event){
+function removeBookmark(event){//trigerred when user hit the x button on the top left
     const clickedElement = event.target;
     clickedElement.parentElement.remove();
     //get pemasok id
@@ -25,6 +25,11 @@ function removeBookmark(event){
         let response = clientXhr.response;
         console.log(response);
     };
+}
+
+function seePemasokPage(event){//trigerred when user click 'lihat pemasok' button
+    const pemasokId = event.target.id;
+    window.location.assign('http://localhost:'+ window.location.port + '/profil-pemasok/' + pemasokId);
 }
 
 function createBookmarkItem(data){
@@ -81,6 +86,7 @@ function createBookmarkItem(data){
     button.className = 'league-spartan';
     button.id = data.id;
     button.textContent = 'Lihat Pemasok';
+    button.onclick = (event) => seePemasokPage(event);
     //button.onclick = pemasokCardButtonClicked;
 
     // Assemble the structure

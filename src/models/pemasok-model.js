@@ -1,5 +1,6 @@
 const {getAllData, addDataBookmarks, getDataById,
-       addDataDaftarProduk, addDataPemasok, getDataByEmailPassword} = require('../../configs/db');
+       addDataDaftarProduk, addDataPemasok, getDataByEmailPassword,
+      updateDataById} = require('../../configs/db');
 
 class Pemasok{//merepresentasikan halaman profil pemasok
     constructor(){
@@ -26,6 +27,11 @@ class Pemasok{//merepresentasikan halaman profil pemasok
         const result = await getDataById(coll, id);
         this.id = result.id;
         this.data = result.data;
+        return 1;
+    }
+
+    async updatePemasokData(coll, docId, data){
+        await updateDataById(coll, docId, data);
         return 1;
     }
 }

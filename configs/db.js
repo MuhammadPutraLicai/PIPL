@@ -126,6 +126,11 @@ async function getDataByEmailPassword(email, password, coll){
     return result;
 }
 
+async function updateDataById(coll, docId, data){
+    await setDoc(doc(db, coll, docId), data, {merge:true});
+    return 1;
+}
+
 module.exports = {
     getAllData,
     getDataById,
@@ -133,10 +138,15 @@ module.exports = {
     addDataCustomer,
     addDataBookmarks,
     addDataDaftarProduk,
-    getDataByEmailPassword
+    getDataByEmailPassword,
+    updateDataById
 };
 
 /*below code is for testing purpose
 getDataById("pemasok", "1").then((result)=>{
     console.log(result);
+});*/
+
+/*updateDataById("pemasok", "48fg6q2xT57pQAX51glQ", {alamat : "Jalan Tinggal Kenangan", nama_perusahaan : "PT Mencari Cinta Sejati"}).then(()=>{
+    console.log("berhasil coy");
 });*/

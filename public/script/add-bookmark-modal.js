@@ -26,3 +26,8 @@ function openModal() {
     }
     
 }
+
+function openEditProfilPage(){
+    const port = window.location.port;
+    window.location.assign("http://localhost:" + port + "/profil-edit");
+}

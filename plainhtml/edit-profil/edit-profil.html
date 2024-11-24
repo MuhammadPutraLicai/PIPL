@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit profile</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <style>
+        label{
+            color: #085F63;
+            font-weight: 500;
+        }
+
+        h1{
+            color: #085F63;
+        }
+
+        body{
+            background-image: url("https://images.unsplash.com/photo-1699454075114-4c4e2cde7eee?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+            background-size: cover;
+            background-position: center;
+            background-color: rgba(0, 0, 0, 0.541);
+            background-blend-mode: overlay;
+        }
+
+        #container{
+            background-color: white;
+        }
+    </style>
+<body>
+    <div class="container border p-5 mt-5 mb-5" id="container">
+        <h1>Edit Data Profil Perusahaan</h1>
+        <form action="/action_page.php">
+
+            <div class="mb-3 mt-3">
+                <label for="nama_perusahaan" class="form-label">Nama Perusahaan:</label>
+                <input type="text" class="form-control" id="nama_perusahaan" name="nama_perusahaan" placeholder="Masukkan Nama Perusahaan">
+            </div>
+
+            <div class="mb-3 mt-3">
+                <label class="form-label" for="jenis_perusahaan">Jenis Perusahaan :</label>
+                <select class="form-select" id="jenis_perusahaan" name="jenis_perusahaan">
+                <option selected>Pilih...</option>
+                <option value="Manufaktur">Manufaktur</option>
+                <option value="Distributor">Distributor</option>
+                </select>
+            </div>
+
+            <div class="mb-3 mt-3">
+                <label class="form-label" for="jenis_produk">Jenis produk :</label>
+                <select class="form-select" id="jenis_produk" name="jenis_produk">
+                    <option selected>Pilih...</option>
+                    <option value="Elektronik">Elektronik</option>
+                    <option value="Otomotif">Otomotif</option>
+                    <option value="Pakaian">Pakaian</option>
+                    <option value="Furnitur">Furnitur</option>
+                    <option value="Pertanian">Pertanian</option>
+                    <option value="Peternakan">Peternakan</option>
+                    <option value="Kimia">Kimia</option>
+                    <option value="Makanan">Makanan</option>
+                    <option value="Konstruksi">Konstruksi</option>
+                    <option value="Medis">Medis</option>
+                    <option value="Pendidikan">Pendidikan</option>
+                    <option value="Logam">Logam</option>
+                    <option value="Kayu">Kayu</option>
+                    <option value="Tekstil">Tekstil</option>
+                    <option value="Software">Software</option>
+                </select>
+            </div>
+
+            <div class="mb-3 mt-3">
+                <label for="email" class="form-label">Email :</label>
+                <input type="email" class="form-control" id="email" placeholder="Masukkan email" name="email">
+            </div>
+
+            <div class="mb-3 mt-3">
+                <label for="nomor_telepon" class="form-label">Nomor Telepon :</label>
+                <input type="text" class="form-control" id="nomor_telepon" placeholder="Masukkan Nomor Telepon" name="nomor_telepon">
+            </div>
+            
+            <div class="mb-3 mt-3">
+                <label for="link_website" class="form-label">Link Website Resmi Perusahaan :</label>
+                <input type="text" class="form-control" id="link_website" placeholder="Masukkan Link Website Resmi Perusahaan" name="link_website" value="">
+            </div>  
+
+            <div class="mb-3">
+                <label class="form-label" for="link_logo">Logo Perusahaan :</label>
+                <input type="file" class="form-control" id="link_logo" name="link_logo">
+            </div>
+
+            <div class="mb-3 mt-3">
+                <label for="owner" class="form-label">Owner Perusahaan:</label>
+                <input type="text" class="form-control" id="owner" placeholder="Masukkan Nama Pemilik Perusahaan" name="owner" value="">
+            </div>
+
+            <div class="mb-3 mt-3">
+                <label for="tahun_didirikan" class="form-label">Tahun Perusahaan Didirikan :</label>
+                <input type="text" class="form-control" id="tahun_didirikan" placeholder="Masukkan Tahun Perusahaan Didirikan" name="tahun_didirikan" value="">
+            </div>
+
+            <div class="mb-3 mt-3">
+                <label for="alamat" class="form-label">Alamat Perusahaan :</label>
+                <input type="text" class="form-control" id="alamat" placeholder="Masukkan Alamat Perusahaan" name="alamat" value="">
+            </div>
+
+            <div class="mb-3">
+                <label for="deskripsi" class="form-label">Deskripsi Perusahaan :</label>
+                <textarea class="form-control" id="deskripsi" rows="10" name="deskripsi"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        <button class="btn btn-danger mt-2">Kembali Ke Halaman Profil</button>
+    </div>
+    <script>
+        function backToProfil(){
+            window.location.assign("http://localhost:" + window.location.port + '/profil');
+        }
+    </script>
+</body>
+</html>

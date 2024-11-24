@@ -54,6 +54,16 @@
     padding: 0.8em 0em;
 }
 
+#edit-button{
+    background-color: var(--teal);
+    color: white;
+    width: fit-content;
+    padding: 0.5em 1em;
+    font-size: 1em;
+    cursor: pointer;
+    margin-bottom: 1em;
+}
+
 #profil > #detail-container{
     display: flex;
     min-height: 250px;

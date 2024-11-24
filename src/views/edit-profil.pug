@@ -1,0 +1,86 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title Edit profile
+    link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css', rel='stylesheet', integrity='sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC', crossorigin='anonymous')
+    script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js', integrity='sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM', crossorigin='anonymous')
+    style.
+      label{
+      color: #085F63;
+      font-weight: 500;
+      }
+      h1{
+      color: #085F63;
+      }
+      body{
+      background-image: url("https://images.unsplash.com/photo-1699454075114-4c4e2cde7eee?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+      background-size: cover;
+      background-position: center;
+      background-color: rgba(0, 0, 0, 0.541);
+      background-blend-mode: overlay;
+      }
+      #container{
+      background-color: white;
+      }
+  body
+    #container.container.border.p-5.mt-5.mb-5
+      h1 Edit Data Profil Perusahaan
+      form(action="/profil-update", method="post", enctype="multipart/form-data")
+        .mb-3.mt-3
+          label.form-label(for='nama_perusahaan') Nama Perusahaan:
+          input#nama_perusahaan.form-control(type='text', name='nama_perusahaan', placeholder='Masukkan Nama Perusahaan')
+        .mb-3.mt-3
+          label.form-label(for='jenis_perusahaan') Jenis Perusahaan :
+          select#jenis_perusahaan.form-select(name='jenis_perusahaan')
+            option(selected='') Pilih...
+            option(value='Manufaktur') Manufaktur
+            option(value='Distributor') Distributor
+        .mb-3.mt-3
+          label.form-label(for='jenis_produk') Jenis produk :
+          select#jenis_produk.form-select(name='jenis_produk')
+            option(selected='') Pilih...
+            option(value='Elektronik') Elektronik
+            option(value='Otomotif') Otomotif
+            option(value='Pakaian') Pakaian
+            option(value='Furnitur') Furnitur
+            option(value='Pertanian') Pertanian
+            option(value='Peternakan') Peternakan
+            option(value='Kimia') Kimia
+            option(value='Makanan') Makanan
+            option(value='Konstruksi') Konstruksi
+            option(value='Medis') Medis
+            option(value='Pendidikan') Pendidikan
+            option(value='Logam') Logam
+            option(value='Kayu') Kayu
+            option(value='Tekstil') Tekstil
+            option(value='Software') Software
+        .mb-3.mt-3
+          label.form-label(for='nomor_telepon') Nomor Telepon :
+          input#nomor_telepon.form-control(type='text', placeholder='Masukkan Nomor Telepon', name='nomor_telepon')
+        .mb-3.mt-3
+          label.form-label(for='link_website') Link Website Resmi Perusahaan :
+          input#link_website.form-control(type='text', placeholder='Masukkan Link Website Resmi Perusahaan', name='link_website', value='')
+        .mb-3
+          label.form-label(for='link_logo') Logo Perusahaan :
+          input#link_logo.form-control(type='file', name='link_logo')
+        .mb-3.mt-3
+          label.form-label(for='owner') Owner Perusahaan:
+          input#owner.form-control(type='text', placeholder='Masukkan Nama Pemilik Perusahaan', name='owner', value='')
+        .mb-3.mt-3
+          label.form-label(for='tahun_didirikan') Tahun Perusahaan Didirikan :
+          input#tahun_didirikan.form-control(type='text', placeholder='Masukkan Tahun Perusahaan Didirikan', name='tahun_didirikan', value='')
+        .mb-3.mt-3
+          label.form-label(for='alamat') Alamat Perusahaan :
+          input#alamat.form-control(type='text', placeholder='Masukkan Alamat Perusahaan', name='alamat', value='')
+        .mb-3
+          label.form-label(for='deskripsi') Deskripsi Perusahaan :
+          textarea#deskripsi.form-control(rows='10', name='deskripsi')
+        button.btn.btn-primary(type='submit') Submit
+      button#back-button.btn.btn-danger.mt-2(onclick='backToProfil()') Kembali Ke Halaman Profil
+    script.
+      function backToProfil(){
+      window.location.assign("http://localhost:" + window.location.port + '/profil');
+      }

@@ -1,11 +1,11 @@
 nav#nav-customer
     h1#nav-title.league-spartan TemanBisnis
     #nav-options
-        a#home(href='#')
+        a#home(href='/main-pemasok')
           span.ic--baseline-home
         #user
           span.mdi--user
           .dropdown-content
             a(href='#', id='logout') Logout
-        .league-spartan.nav-button(href='#') Profil
+        .league-spartan.nav-button(href='#', id = "profil-button", onclick='showProfil()') Profil
         .league-spartan.nav-button(href='#', id = "bookmark-button", onclick='showBookmark()') Bookmark

@@ -22,6 +22,8 @@ html(lang='en')
       include ./customer/customer-nav.pug
     #profil
       h2.page-title(id = id) Profil Perusahaan
+      if edit 
+        h3#edit-button(onclick = 'openEditProfilPage()') Edit Profil 
       #detail-container
         #logo-perusahaan(style=`background-image: url('${data.link_logo}');`)
         #detail

@@ -3,12 +3,16 @@ const session = require('express-session');
 const cookieParser = require('cookie-parser');
 const multer  = require('multer')
 const path = require('path');
+const srs = require('secure-random-string');
 const {getCustomerMainPage, getPemasokMainPage} = require('./src/controllers/main-page-controller');
+const {Produk} = require('./src/models/produk-model');
 const authentication = require('./routes/authentication');
 const PemasokProfil = require('./src/controllers/pemasok-profil-controller');
 const profil = require('./routes/profil-pemasok');
 const bookmark = require('./routes/bookmark');
+const deleteProduk = require('./routes/delete-produk');
 const app = express();
+//multer connfiguration
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
     // Specify the upload directory
@@ -16,11 +20,17 @@ const storage = multer.diskStorage({
     },
     filename: function (req, file, cb) {
     // Define the file name format
-    cb(null, "company-logo.png");
+    if(file.fieldname == 'link_logo'){
+        cb(null, "company-logo.png"); 
+    }else{
+        let randomString = srs({length: 8});
+        cb(null, `${randomString}.jpeg`); 
+    }
     }
 });
 
 const upload = multer({ storage: storage });
+
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use(cookieParser());
@@ -79,11 +89,25 @@ app.post('/profil-update',upload.single('link_logo'), async (req, res)=>{//handl
     }
     const pemasok = new PemasokProfil();
     await pemasok.updatePemasokProfil(req, res);
+    console.log(req.file);
     res.redirect('/profil');
     //console.log(req.file, req.body);
 });
 
 app.use('/bookmark', bookmark);
+app.post('/add-produk',upload.single('image'), async(req, res)=>{
+    const newProdukData ={
+        image : req.file.destination + req.file.filename,
+        nama_barang : req.body.nama_barang,
+        deskripsi : req.body.deskripsi
+    };
+
+    const newProduk = new Produk();
+    await newProduk.updateProduk(req.cookies.daftar_produk,newProdukData);
+    res.redirect('/profil')
+});
+
+app.use('/delete-produk', deleteProduk);
 app.use('/authentication', authentication);
 
 app.get('/logout', (req, res)=>{

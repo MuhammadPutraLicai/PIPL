@@ -1,0 +1,20 @@
+#catalog-modal
+    h1#catalog-title Anda yakin ingin menghapus produk ini?
+    #catalog-content
+        a.catalog-modal-button(href='#', onclick='deleteProdukConfirmed(event)') Ya
+        a#no-delete.catalog-modal-button(onclick='closeWarningModal()') Tidak
+#add-catalog-modal
+    h1#add-catalog-title Tambah Produk baru
+    #add-catalog-content
+        form#form-container(action='/add-produk', method ='post', enctype='multipart/form-data')
+            .form-item
+                label.form-item-label(for='image') Gambar Produk:
+                input#image.input-field(type='file', name='image', required='')
+            .form-item
+                label.form-item-label(for='nama_barang') Nama Produk:
+                input#nama_barang.form-item-input(type='text', name='nama_barang', placeholder='Masukkan Nama Produk', required='')
+            .form-item
+                label.form-item-label(for='deskripsi') Deskripsi Produk:
+                textarea#deskripsi-produk.form-item-input(type='text', name='deskripsi', rows='5')
+            input#submit-produk(type='submit', value='Selesai')
+            #add-catalog-cancel(onclick='closeAddProdukModal()') Cancel

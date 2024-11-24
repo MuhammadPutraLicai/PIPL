@@ -2,7 +2,13 @@
     --teal: #085F63;
 }
 
-/*catalog start here*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
 .catalog{
     padding: 1.2em 10%;
 }
@@ -25,14 +31,13 @@
 
 .catalog-item > .item-image{
     min-width: 150px;
-    /*background-image: url("h");*/
+    background-image: url("https://images.unsplash.com/photo-1726094051307-a55a8ea52314?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwyOXx8fGVufDB8fHx8fA%3D%3D");
     background-size: cover;
-    background-repeat: no-repeat;
     background-position: center;
 }
 
 .catalog-item > .item-info{
-    padding: 0em 1em;
+    padding: 0em 0.5em;
 }
 
 .item-info > .item-name{
@@ -43,6 +48,7 @@
 .item-info > .item-description{
     max-width: 500px;
     text-align: justify;
+    padding-bottom: 1em;
 }
 
 .delete-produk-button{
@@ -53,56 +59,17 @@
     font-size: 0.8em;
     font-weight: 500;
     padding: 0.5em 0.8em;
-    margin: 0.5em 0em;
     cursor: pointer;
 }
-
-#catalog-modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    left:0;
-    top: calc(35%);
-    width: 100%; /* Full width */
-    height: 30%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: #ffffff;
-    border-top: 1px solid var(--teal);
-    border-bottom: 1px solid var(--teal);
-}
-
-#catalog-modal #catalog-title{
-    color: var(--teal);
-    font-size: 1.8em;
-    text-align: center;
-    padding: 1em 0em;
-}
-
-#catalog-content{
-    padding: 16px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.catalog-modal-button{
-    padding: 0.5em 2em;
-    margin: 0em 1em;
-    font-weight: 600;
-    background-color: white;
-    color: var(--teal);
-    border: 1px solid var(--teal);
-    cursor: pointer;
-}
-/*///////////*/
+/*////////////modal//////////*/
 #add-catalog-modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
     left:0;
-    top: calc(10%);
+    top: calc(25%);
     width: 100%; /* Full width */
-    height: 80%; /* Full height */
+    height: 50%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
     background-color: #ffffff;
     border-top: 1px solid var(--teal);
@@ -112,7 +79,7 @@
 #add-catalog-modal #add-catalog-title{
     color: var(--teal);
     font-size: 1.8em;
-    text-align:center;
+    text-align: center;
     padding: 1em 0em;
 }
 
@@ -174,3 +141,5 @@
     color: var(--teal);
     border: 1px solid var(--teal);
 }
+
+

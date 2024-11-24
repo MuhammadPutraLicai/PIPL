@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="edit-catalog.css">
+    <title>Document</title>
+</head>
+<body>
+    <div onclick="showAddProdukModal()">open</div>
+    <div id="add-catalog-modal">
+        <h1 id="add-catalog-title">Tambah Produk baru</h1>
+        <div id="add-catalog-content">
+            <form action="" enctype="multipart/form-data" id="form-container">
+                <div class="form-item">
+                    <label for="image" class="form-item-label">Gambar Produk:</label>
+                    <input type="file" class="input-field" id="image" name="image" required> 
+                </div>
+
+                <div class="form-item">
+                    <label for="nama_barang" class="form-item-label">Nama Produk:</label>
+                    <input class="form-item-input" type="text" id="nama_barang" name="nama_barang" placeholder="Masukkan Nama Produk" required>
+                </div>
+
+                <div class="form-item">
+                    <label for="deskripsi" class="form-item-label">Deskripsi Produk:</label>
+                    <textarea class="form-item-input" type="text" id="deskripsi-produk" name="deskripsi" rows="5"></textarea>
+                </div>
+                <input type="submit" value="Selesai" id="submit-produk"> 
+                <div id="add-catalog-cancel" onclick="closeAddProdukModal()">Cancel</div>
+            </form>
+            
+        </div>
+    </div>
+    <script>
+        function showAddProdukModal() {
+            document.getElementById('add-catalog-modal').style.display = 'block';
+        }
+
+        function closeAddProdukModal(){
+            document.getElementById('add-catalog-modal').style.display = 'none';
+        }
+    </script>
+</body>
+</html>

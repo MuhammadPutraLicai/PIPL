@@ -3,3 +3,5 @@
     .item-info
         h4.item-name #{produk.nama_barang}
         p.item-description #{produk.deskripsi}
+        if edit 
+            .delete-produk-button(onclick='deleteProduk(event)', id= produk.nama_barang) Delete

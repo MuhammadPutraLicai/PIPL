@@ -52,7 +52,7 @@ html(lang='en')
               .item-informasi-contact
                 span.ic--baseline-email
                 | E-mail
-          #tombol-tambahkan(onclick='openModal()') Tambahkan+
+          #tombol-tambahkan(onclick='') Tambahkan+
     #deskripsi
       h2#deskripsi-title Deskripsi Perusahaan
       p#deskripsi-content #{data.deskripsi}
@@ -65,6 +65,9 @@ html(lang='en')
     include ./components/footer.pug
     include ./components/add-bookmark-modal.pug
     include ./components/bookmark.pug
+    if edit
+      include ./components/catalog-modal.pug
     script(src='public/script/logout.js')
     script(src='public/script/add-bookmark-modal.js')
     script(src='public/script/bookmark.js')
+    script(src='public/script/edit-produk.js')

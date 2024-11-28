@@ -102,6 +102,8 @@ function createBookmarkItem(data){
 
 function responseHandler(response){
     if (Object.values(response).length){
+        const loaderElement = document.getElementById('bookmark-loader');
+        loaderElement.style.display = 'none';
         for (let key in response){
             createBookmarkItem(response[key]);
         }
@@ -116,6 +118,8 @@ function responseHandler(response){
 }
 
 function showBookmark(){
+    const loaderElement = document.getElementById('bookmark-loader');
+    loaderElement.style.display = 'block';
     document.getElementById('bookmark-modal').style.display = 'block';
     //preventing the user from spanning the bookmark button
     const bookmarkButton = document.getElementById('bookmark-button');

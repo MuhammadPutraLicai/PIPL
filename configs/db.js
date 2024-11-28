@@ -150,6 +150,28 @@ async function getDataPemasokByQuery(jenisPerusahaan, jenisProduk){
     return result;
 }
 
+async function getDataPemasokByName(name) {
+    const docRef = collection(db, "pemasok");
+    const q = query(docRef, where("nama_perusahaan", "==", name));
+    let result = [];
+
+    const querySnapShot = await getDocs(q);
+    if (querySnapShot.empty) {//check if document doesn't exist after searching
+        console.log(`No document found with nama : ${name}in pemasok collection`);
+        result = null;
+        return result;
+    }
+    console.log(`found document with nama : ${name}in pemasok collection`);
+    querySnapShot.forEach((doc)=>{
+        //console.log(doc.id, "=>", doc.data());
+        result.push({
+            id : doc.id,
+            data : doc.data()
+        });
+    });
+    return result;
+}
+
 async function updateDataById(coll, docId, data){
     await setDoc(doc(db, coll, docId), data, {merge:true});
     return 1;
@@ -164,7 +186,8 @@ module.exports = {
     addDataDaftarProduk,
     getDataByEmailPassword,
     updateDataById,
-    getDataPemasokByQuery
+    getDataPemasokByQuery,
+    getDataPemasokByName
 };
 
 /*below code is for testing purpose

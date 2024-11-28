@@ -1,6 +1,6 @@
 const {getAllData, addDataBookmarks, getDataById,
        addDataDaftarProduk, addDataPemasok, getDataByEmailPassword,
-      updateDataById, getDataPemasokByQuery} = require('../../configs/db');
+      updateDataById, getDataPemasokByQuery, getDataPemasokByName} = require('../../configs/db');
 
 class Pemasok{//merepresentasikan halaman profil pemasok
     constructor(){
@@ -109,6 +109,27 @@ class CardPemasokModel{//merepresentasikan daftar - daftar kartu yang ditampilka
             }
             this.cardList.push(temp);
             } 
+        }else{
+            this.cardList = null;
+        }
+        return 1;
+    }
+
+    async createSearchedCard(namaPerusahaan){
+        const dataList = await getDataPemasokByName(namaPerusahaan);
+        if (dataList){
+            for (let i = 0; i < dataList.length; i++) {
+                //buat instance dari kelas CardPemasok lalu masukkan ke dalam array cardList
+                let temp = {
+                    id : dataList[i].id,
+                    linkLogo : dataList[i].data.link_logo,
+                    namaPerusahaan : dataList[i].data.nama_perusahaan,
+                    jenisPerusahaan : dataList[i].data.jenis_perusahaan,
+                    jenisProduk : dataList[i].data.jenis_produk,
+                    deskripsi : extractFirstTwentyWords(dataList[i].data.deskripsi) 
+                }
+                this.cardList.push(temp);
+            }
         }else{
             this.cardList = null;
         }

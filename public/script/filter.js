@@ -81,6 +81,10 @@ function createSupplierCard(data) {
 function createFilteredSupplierCardList(data){
     const supplierList = document.querySelector('.supplier-list');
     const suppliers = document.querySelectorAll('.supplier-list .supplier');
+    const supplierNotFound = document.getElementById('supplier-not-found');
+    if(supplierNotFound){
+        supplierNotFound.remove();
+    }
     suppliers.forEach(supplier => supplier.remove());
     if(data){
        data.forEach(cardData => {
@@ -88,9 +92,11 @@ function createFilteredSupplierCardList(data){
             supplierList.appendChild(filteredCard)
         }); 
     }else{
-        supplierList.appendChild("<h3>Data tidak ditemukan</h3>");
+        const notFoundElement = document.createElement('h3');
+        notFoundElement.id = 'supplier-not-found';
+        notFoundElement.textContent = 'Data tidak ditemukan';
+        supplierList.appendChild(notFoundElement);
     }
-    
 }
 
 function filterSupplier(){

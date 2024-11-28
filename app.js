@@ -10,6 +10,7 @@ const authentication = require('./routes/authentication');
 const PemasokProfil = require('./src/controllers/pemasok-profil-controller');
 const profil = require('./routes/profil-pemasok');
 const bookmark = require('./routes/bookmark');
+const filter = require('./routes/filter');
 const deleteProduk = require('./routes/delete-produk');
 const app = express();
 //multer connfiguration
@@ -95,6 +96,7 @@ app.post('/profil-update',upload.single('link_logo'), async (req, res)=>{//handl
 });
 
 app.use('/bookmark', bookmark);
+app.use('/filter', filter);
 app.post('/add-produk',upload.single('image'), async(req, res)=>{
     const newProdukData ={
         image : req.file.destination + req.file.filename,

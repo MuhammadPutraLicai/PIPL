@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="filter.css">
+    <title>Document</title>
+</head>
+<body>
+    <div id="filter">
+        <div id="filter-button" onclick="showFilterDropDown()">
+            <span class="mage--filter" id="filter-icon"></span>
+            <h3 id="filter-text" class="league-spartan">Filter</h3>  
+        </div>
+        <div id="filter-dropdown">
+            <h3 class="radio-section-title">Jenis Perusahaan</h3>
+            <div class="radio-section">
+                <label class="radio-container">Manufaktur
+                    <input type="radio" checked="checked" name="jenis_perusahaan">
+                    <span class="checkmark"></span>
+                </label>
+                <label class="radio-container">Distributor
+                    <input type="radio" name="jenis_perusahaan">
+                    <span class="checkmark"></span>
+                </label>
+            </div>
+
+            <h3 class="radio-section-title">Jenis Produk</h3>
+            <div class="radio-section">
+                <label class="radio-container">Elektronik
+                    <input type="radio" checked="checked" name="jenis_produk">
+                    <span class="checkmark"></span>
+                  </label>
+                  
+                  <label class="radio-container">Otomotif
+                    <input type="radio" name="jenis_produk">
+                    <span class="checkmark"></span>
+                  </label>
+                  
+                  <label class="radio-container">Pakaian
+                    <input type="radio" name="jenis_produk">
+                    <span class="checkmark"></span>
+                  </label>
+                  
+                  <label class="radio-container">Furnitur
+                    <input type="radio" name="jenis_produk">
+                    <span class="checkmark"></span>
+                  </label>
+                  
+                  <label class="radio-container">Pertanian
+                    <input type="radio" name="jenis_produk">
+                    <span class="checkmark"></span>
+                  </label>
+                  
+                  <label class="radio-container">Peternakan
+                    <input type="radio" name="jenis_produk">
+                    <span class="checkmark"></span>
+                  </label>
+                  
+                  <label class="radio-container">Kimia
+                    <input type="radio" name="jenis_produk">
+                    <span class="checkmark"></span>
+                  </label>
+                  
+                  <label class="radio-container">Makanan
+                    <input type="radio" name="jenis_produk">
+                    <span class="checkmark"></span>
+                  </label>
+                  
+                  <label class="radio-container">Konstruksi
+                    <input type="radio" name="jenis_produk">
+                    <span class="checkmark"></span>
+                  </label>
+                  
+                  <label class="radio-container">Medis
+                    <input type="radio" name="jenis_produk">
+                    <span class="checkmark"></span>
+                  </label>
+                  
+                  <label class="radio-container">Pendidikan
+                    <input type="radio" name="jenis_produk">
+                    <span class="checkmark"></span>
+                  </label>
+                  
+                  <label class="radio-container">Logam
+                    <input type="radio" name="jenis_produk">
+                    <span class="checkmark"></span>
+                  </label>
+                  
+                  <label class="radio-container">Kayu
+                    <input type="radio" name="jenis_produk">
+                    <span class="checkmark"></span>
+                  </label>
+                  
+                  <label class="radio-container">Tekstil
+                    <input type="radio" name="jenis_produk">
+                    <span class="checkmark"></span>
+                  </label>
+                  
+                  <label class="radio-container">Software
+                    <input type="radio" name="jenis_produk">
+                    <span class="checkmark"></span>
+                  </label>
+            </div>
+            
+            <div id="radio-button-selesai">Selesai</div>
+            <div id="radio-button-batal" onclick="closeFilterDropDown()">Batal</div>
+        </div>
+        
+    </div>
+
+    <script src="filter.js">
+    </script>
+</body>
+</html>

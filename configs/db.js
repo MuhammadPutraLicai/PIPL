@@ -23,6 +23,8 @@ async function getAllData(collectionName){
     return dokumentList;
 }
 
+
+
 //mengambil dokumen berdasarkan id dokumen
 async function getDataById(collectionName, docId) {
     const result = {};
@@ -126,6 +128,28 @@ async function getDataByEmailPassword(email, password, coll){
     return result;
 }
 
+async function getDataPemasokByQuery(jenisPerusahaan, jenisProduk){
+    const docRef = collection(db, "pemasok");
+    const q = query(docRef, where("jenis_perusahaan", "==", jenisPerusahaan), where("jenis_produk", "==", jenisProduk));
+    let result = [];
+
+    const querySnapShot = await getDocs(q);
+    if (querySnapShot.empty) {//check if document doesn't exist after searching
+        console.log(`No document found with jenis_perusahaan = ${jenisPerusahaan} and jenis_produk = ${jenisProduk} in pemasok collection`);
+        result = null;
+        return result;
+    }
+    console.log(`found document with jenis_perusahaan = ${jenisPerusahaan} and jenis_produk = ${jenisProduk} in pemasok collection`);
+    querySnapShot.forEach((doc)=>{
+        //console.log(doc.id, "=>", doc.data());
+        result.push({
+            id : doc.id,
+            data : doc.data()
+        });
+    });
+    return result;
+}
+
 async function updateDataById(coll, docId, data){
     await setDoc(doc(db, coll, docId), data, {merge:true});
     return 1;
@@ -139,7 +163,8 @@ module.exports = {
     addDataBookmarks,
     addDataDaftarProduk,
     getDataByEmailPassword,
-    updateDataById
+    updateDataById,
+    getDataPemasokByQuery
 };
 
 /*below code is for testing purpose

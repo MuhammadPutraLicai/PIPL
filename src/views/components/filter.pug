@@ -1,3 +1,81 @@
 #filter
-    span#filter-icon.mage--filter
-    h3#filter-text.league-spartan Filter
+    #filter-button(onclick='showFilterDropDown()')
+        span#filter-icon.mage--filter
+        h3#filter-text.league-spartan Filter
+    #filter-dropdown
+        h3.radio-section-title Jenis Perusahaan
+        .radio-section
+            label.radio-container
+                | Manufaktur
+                input(type='radio', checked='checked', name='jenis_perusahaan')
+                span.checkmark
+            label.radio-container
+                | Distributor
+                input(type='radio', name='jenis_perusahaan')
+                span.checkmark
+        
+        h3.radio-section-title Jenis Produk
+        .radio-section
+            label.radio-container
+                | Elektronik
+                input(type='radio', checked='checked', name='jenis_produk')
+                span.checkmark
+            label.radio-container
+                | Otomotif
+                input(type='radio', name='jenis_produk')
+                span.checkmark
+            label.radio-container
+                | Pakaian
+                input(type='radio', name='jenis_produk')
+                span.checkmark
+            label.radio-container
+                | Furnitur
+                input(type='radio', name='jenis_produk')
+                span.checkmark
+            label.radio-container
+                | Pertanian
+                input(type='radio', name='jenis_produk')
+                span.checkmark
+            label.radio-container
+                | Peternakan
+                input(type='radio', name='jenis_produk')
+                span.checkmark
+            label.radio-container
+                | Kimia
+                input(type='radio', name='jenis_produk')
+                span.checkmark
+            label.radio-container
+                | Makanan
+                input(type='radio', name='jenis_produk')
+                span.checkmark
+            label.radio-container
+                | Konstruksi
+                input(type='radio', name='jenis_produk')
+                span.checkmark
+            label.radio-container
+                | Medis
+                input(type='radio', name='jenis_produk')
+                span.checkmark
+            label.radio-container
+                | Pendidikan
+                input(type='radio', name='jenis_produk')
+                span.checkmark
+            label.radio-container
+                | Logam
+                input(type='radio', name='jenis_produk')
+                span.checkmark
+            label.radio-container
+                | Kayu
+                input(type='radio', name='jenis_produk')
+                span.checkmark
+            label.radio-container
+                | Tekstil
+                input(type='radio', name='jenis_produk')
+                span.checkmark
+            label.radio-container
+                | Software
+                input(type='radio', name='jenis_produk')
+                span.checkmark
+        
+        #radio-button-selesai(onClick='filterSupplier()') Selesai
+        #radio-button-batal(onclick='closeFilterDropDown()') Batal

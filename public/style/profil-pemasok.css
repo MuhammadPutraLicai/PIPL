@@ -188,6 +188,38 @@
     padding: 1em 0em;
 }
 
+#informasi-contact-modal{
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    flex-direction: column;
+    justify-content: center;
+    left:calc(25%);
+    top: calc(30%);
+    width: 50%; /* Full width */
+    height: 40%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    padding: 2% 10%;
+    background-color: #ffffff;
+    border: 1px solid rgb(126, 126, 126);
+    box-shadow: 5px 4px 21px -5px rgba(126, 126, 126, 0.75);
+}
+
+#informasi-contact-content{
+    font-size: 1.1em;
+    text-align: center;
+    margin: 0.5em 0em;
+}
+
+#informasi-contact-close{
+    color: white;
+    background-color: var(--teal);
+    text-align: center;
+    margin: 0.5em 0em;
+    padding: 0.5em 0em;
+}
+
+
 @media screen and (max-width: 900px) {
     #profil > #detail-container{
         flex-direction: column;

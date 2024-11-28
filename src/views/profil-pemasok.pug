@@ -43,16 +43,19 @@ html(lang='en')
                 p.informasi-title Owner
                 p #{data.owner}
             #informasi-contact
-              .item-informasi-contact
-                span.ic--baseline-phone
+              .item-informasi-contact(id = data.nomor_telepon, onclick='showInformasiContact(event)')
+                .ic--baseline-phone(id = data.nomor_telepon, onclick='showInformasiContact(event)')
                 | Lihat nomor telepon
-              .item-informasi-contact
-                span.mingcute--link-fill
+              .item-informasi-contact(id = data.link_website, onclick='showInformasiContact(event)')
+                .mingcute--link-fill(id = data.link_website, onclick='showInformasiContact(event)')
                 | Kunjungi website
-              .item-informasi-contact
-                span.ic--baseline-email
+              .item-informasi-contact(id = data.email, onclick='showInformasiContact(event)')
+                .ic--baseline-email(id = data.email, onclick='showInformasiContact(event)')
                 | E-mail
           #tombol-tambahkan(onclick='openModal()') Tambahkan+
+          #informasi-contact-modal
+            p#informasi-contact-content Hello world
+            #informasi-contact-close(onclick='closeInformasiContact()') close
     #deskripsi
       h2#deskripsi-title Deskripsi Perusahaan
       p#deskripsi-content #{data.deskripsi}
@@ -71,3 +74,4 @@ html(lang='en')
     script(src='public/script/add-bookmark-modal.js')
     script(src='public/script/bookmark.js')
     script(src='public/script/edit-produk.js')
+    script(src='public/script/informasi-contact.js')

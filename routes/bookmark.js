@@ -7,10 +7,10 @@ bookmark.post('/add', async (req, res)=>{
     const result = await updateBookmark( userBookmark, req.body.pemasokId);
     if (result == 1) {
         res.status(200);
-        res.json({taskResult : 1, message : "New Pemasok has been successfully addded to bookmarks"});
+        res.json({taskResult : 1, message : "Berhasil menambahkan pemasok ke dalam bookmarks"});
     } else {
         res.status(500);
-        res.json({taskResult : 0, message : "This Pemasok is already exist in bookmarks"});
+        res.json({taskResult : 0, message : "Pemasok sudah ada di dalam bookmarks"});
     }
 });
 

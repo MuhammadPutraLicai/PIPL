@@ -59,7 +59,7 @@ function createSupplierCard(data) {
     button.className = 'league-spartan';
     button.id = data.id;
     button.textContent = 'Lihat Pemasok';
-    button.setAttribute('onclick', 'pemasokCardButtonClicked()');
+    button.onclick = pemasokCardButtonClicked;
 
     // Assemble the structure
     cardInfoDiv.appendChild(companyNameH4);

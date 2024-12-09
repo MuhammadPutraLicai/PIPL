@@ -108,6 +108,8 @@ function responseHandler(response){
             createBookmarkItem(response[key]);
         }
     }else{
+        const loaderElement = document.getElementById('bookmark-loader');
+        loaderElement.style.display = 'none';
         const bookmarkItem = document.createElement('h2');
         bookmarkItem.textContent = "Your Bookmarks is empty";
         bookmarkItem.style.textAlign = "center";

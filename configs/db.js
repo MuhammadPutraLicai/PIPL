@@ -23,8 +23,6 @@ async function getAllData(collectionName){
     return dokumentList;
 }
 
-
-
 //mengambil dokumen berdasarkan id dokumen
 async function getDataById(collectionName, docId) {
     const result = {};

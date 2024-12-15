@@ -58,8 +58,6 @@ authentication.post('/login-customer', async (req, res)=>{
     }
 });
 
-
-
 //routes for register
 authentication.get('/register-pemasok', (req, res)=>{
     res.render('register-pemasok.pug',{formPath : '/authentication/register-pemasok'});
@@ -121,7 +119,5 @@ authentication.post('/register-customer', async (req, res)=>{
         res.status(401).send("something went wrong");
     }
 });
-
-
 
 module.exports = authentication;

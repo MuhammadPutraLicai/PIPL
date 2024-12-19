@@ -74,3 +74,8 @@
     border-radius: 5px;
     cursor: pointer;
 }
+
+.card-content > button:hover{
+    background-color: #085F63;
+    color: white;
+}

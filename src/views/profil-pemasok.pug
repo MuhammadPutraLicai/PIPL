@@ -53,7 +53,10 @@ html(lang='en')
               .item-informasi-contact(id = data.email, onclick='showInformasiContact(event)')
                 .ic--baseline-email(id = data.email, onclick='showInformasiContact(event)')
                 | E-mail
-          #tombol-tambahkan(onclick='openModal()') Tambahkan+
+          if edit       
+            #tombol-tambahkan(onclick="openModal()", style="visibility: hidden") Tambahkan+
+          else
+            #tombol-tambahkan(onclick='openModal()') Tambahkan+
           #informasi-contact-modal
             p#informasi-contact-content Hello world
             #informasi-contact-close(onclick='closeInformasiContact()') close

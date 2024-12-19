@@ -59,7 +59,7 @@ app.get('/main-pemasok', (req, res)=>{//to pemasok main page
         console.log("user cookie =>",req.cookies);
         getPemasokMainPage(req, res);
     }else{
-        res.send("please login as pemasok");
+        res.render('page_403.pug');
     }
 });
 
@@ -69,7 +69,7 @@ app.get('/main-customer', (req, res)=>{//to customer main page
         console.log("user cookie =>", req.cookies);
         getCustomerMainPage(req, res);
     }else{
-        res.send("please login as customer");
+        res.render('page_403.pug');
     }
 })
 
@@ -124,7 +124,7 @@ app.get('/logout', (req, res)=>{
 });
 
 app.get('*', function(req, res){
-    res.send('Sorry, this is an invalid URL.');
+    res.render('page_404.pug');
 });
 
 app.listen(8080, ()=>{

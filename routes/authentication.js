@@ -11,6 +11,10 @@ authentication.get('/login', (req, res)=>{
 //routes for login---
 authentication.get('/login-pemasok', (req, res)=>{
     //console.log(req.route.path);
+    if (req.session.userId && (req.session.role == "pemasok")) {
+        res.redirect('/main-pemasok');
+        return;
+    }
     res.render('login.pug',{
         role : 'pemasok',
         formPath : '/authentication/login-pemasok',

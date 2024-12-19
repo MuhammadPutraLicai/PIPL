@@ -58,3 +58,16 @@ html(lang='en')
             label.league-spartan(for='deskripsi') Deskripsi :
             textarea#deskripsi(name='deskripsi', cols='5', rows='15')
           input#submit-button(type='submit', value='Daftar')
+    script.
+      document.getElementById('form-section').addEventListener('submit', function(event) {
+      // Get the password and confirm password fields
+      const password = document.getElementById('kata-sandi').value;
+      const confirmPassword = document.getElementById('ketik-ulang-kata-sandi').value;
+      // Check if the passwords match
+      if (password !== confirmPassword) {
+      // Prevent form submission
+      event.preventDefault();
+      // Display an alert or add error message
+      alert('Kata Sandi dan Ketik Ulang Kata Sandi tidak sama!');
+      }
+      });

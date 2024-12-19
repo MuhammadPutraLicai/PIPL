@@ -94,6 +94,15 @@
     border: 1px solid var(--teal);
     cursor: pointer;
 }
+
+#add-product-button{
+    background-color: var(--teal);
+    color: white;
+    border: none;
+    padding: 0.8em 1em;
+    cursor: pointer;
+    margin: 0.5em 0em;
+}
 /*///////////*/
 #add-catalog-modal {
     display: none; /* Hidden by default */
